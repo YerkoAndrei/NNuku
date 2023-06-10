@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--YerkoAndrei-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ñuku.MainPage">
+
+    <ContentPage.Resources>
+        <!--Colores-->
+        <Color x:Key="ColorFondo">Black</Color>
+        <Color x:Key="ColorDeco">#FF787864</Color>
+        <Color x:Key="ColorTexto">White</Color>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="{StaticResource ColorFondo}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <!--Bordes-->
+        <Border Grid.Row="0" BackgroundColor="Transparent" Margin="1,1,1,0" Stroke="{StaticResource ColorDeco}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5,5,5,5"/>
+            </Border.StrokeShape>
+        </Border>
+
+        <Border Grid.Row="1" BackgroundColor="Transparent" Margin="1,0,1,1" Stroke="{StaticResource ColorDeco}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5,5,5,5"/>
+            </Border.StrokeShape>
+        </Border>
+
+        <!--Fecha-->
+        <Label Grid.Row="0" x:Name="fecha"
+               TextColor="{StaticResource ColorTexto}"
+               HorizontalTextAlignment="Center"
+               FontSize="18"
+               Padding="0,22,0,0"/>
+
+        <!--Texto nota-->
+        <Editor Grid.Row="1" x:Name="nota"
+                TextColor="{StaticResource ColorTexto}"
+                FontSize="22"
+                Margin="20,2,20,20"
+                Text="texto"/>
+    </Grid>
+
+</ContentPage>
