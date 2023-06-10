@@ -1,0 +1,34 @@
+# Compilaciones
+*.app
+*.exe
+*.war
+
+# Archivos grandes
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
+
+# Visual Studio
+*.vs
+*.suo
+*.sln
+*.user
+*.csproj
+[Bb]in
+[Oo]bj
+package
+.config/
+
+# Generado Por Sistemas Operativos
+.DS_Store
+Thumbs.db
+*.log
+
+# Krita
+*.png~
+
+# appsetings
+*/appsettings.json*
