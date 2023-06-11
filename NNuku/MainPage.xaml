@@ -41,14 +41,14 @@
         <!--Fecha-->
         <Label Grid.Row="0" x:Name="fecha"
                TextColor="{StaticResource ColorTexto}"
+               FontSize="{DynamicResource tamañoFecha}"
                HorizontalTextAlignment="Center"
-               FontSize="18"
                Padding="0,22,0,0"/>
 
         <!--Texto nota-->
         <Editor Grid.Row="1" x:Name="nota"
                 TextColor="{StaticResource ColorTexto}"
-                FontSize="22"
+                FontSize="{DynamicResource tamañoTexto}"
                 Margin="20,2,20,20"
                 Text="texto"/>
     </Grid>

@@ -11,6 +11,7 @@
         <!--Colores-->
         <Color x:Key="ColorFondo">Black</Color>
         <Color x:Key="ColorDeco">#FF787864</Color>
+        <Color x:Key="ColorFecha">#c8c8c8</Color>
         <Color x:Key="ColorTexto">White</Color>
     </ContentPage.Resources>
 
@@ -19,17 +20,22 @@
     </ContentPage.ToolbarItems>
     
     <Grid>
-        <ListView x:Name="diario">
+        <ListView x:Name="diario" ItemSelected="EnClicNota">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="9*"/>
-                        </Grid.RowDefinitions>
-                        <Label Grid.Row="0" Text="{Binding Fecha}" TextColor="{StaticResource ColorTexto}"/>
-                        <Label Grid.Row="1" Text="{Binding Texto}" TextColor="{StaticResource ColorTexto}"/>
-                    </Grid>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="9*"/>
+                            </Grid.RowDefinitions>
+
+                            <BoxView Grid.Row="0" Margin="0,0,0,0" HeightRequest="1" Color="{StaticResource ColorDeco}" IsVisible="True"/>
+                            <Label Grid.Row="1" Text="{Binding Fecha}" TextColor="{StaticResource ColorFecha}" FontSize="{DynamicResource tamañoFecha}"/>
+                            <Label Grid.Row="2" Text="{Binding Texto}" TextColor="{StaticResource ColorTexto}" FontSize="{DynamicResource tamañoTexto}"/>
+                        </Grid>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -6,6 +6,9 @@ public partial class MainPage : ContentPage
 {
     private bool guardado;
 
+    private double tamañoFecha = 18;
+    private double tamañoTexto = 22;
+
     public MainPage()
     {
         InitializeComponent();
@@ -32,7 +35,7 @@ public partial class MainPage : ContentPage
             return;
 
         var nuevaNota = new Nota();
-        nuevaNota.Fecha = DateTime.Now;
+        nuevaNota.Fecha = FormatearFechaEstándar(DateTime.Now);
         nuevaNota.Texto = nota.Text;
 
         // Guarda nota
@@ -60,7 +63,7 @@ public partial class MainPage : ContentPage
         if (nota.Text.Length > 0)
         {
             var nuevaNota = new Nota();
-            nuevaNota.Fecha = DateTime.Now;
+            nuevaNota.Fecha = FormatearFechaEstándar(DateTime.Now);
             nuevaNota.Texto = nota.Text;
 
             // Guarda nota
