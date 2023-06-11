@@ -36,10 +36,7 @@ public class Constantes
         var carpetaDiario = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nombreCarpeta);
         var archivoDiario = Path.Combine(carpetaDiario, archivoNotas);
 
-        if (!Directory.Exists(carpetaDiario))
-            Directory.CreateDirectory(carpetaDiario);
-
-        if (!File.Exists(archivoDiario))
+        if (!Directory.Exists(carpetaDiario) || !File.Exists(archivoDiario))
             return new List<Nota>();
 
         try
