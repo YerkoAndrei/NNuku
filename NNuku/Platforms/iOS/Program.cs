@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Ñuku;
+namespace NNuku;
 
 public class Program
 {

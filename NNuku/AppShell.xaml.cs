@@ -1,4 +1,4 @@
-﻿namespace Ñuku;
+﻿namespace NNuku;
 
 public partial class AppShell : Shell
 {

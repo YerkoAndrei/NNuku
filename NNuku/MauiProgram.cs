@@ -1,4 +1,4 @@
-﻿namespace Ñuku;
+﻿namespace NNuku;
 
 public static class MauiProgram
 {

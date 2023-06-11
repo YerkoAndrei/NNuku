@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NNuku.Diario"
+             Title="Diario">
+
+    <ContentPage.Resources>
+        <!--Colores-->
+        <Color x:Key="ColorFondo">Black</Color>
+        <Color x:Key="ColorDeco">#FF787864</Color>
+        <Color x:Key="ColorTexto">White</Color>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Nueva nota" Clicked="EnClicNuevaNota"/>
+    </ContentPage.ToolbarItems>
+    
+    <Grid>
+        <ListView x:Name="diario">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="9*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Text="{Binding Fecha}" TextColor="{StaticResource ColorTexto}"/>
+                        <Label Grid.Row="1" Text="{Binding Texto}" TextColor="{StaticResource ColorTexto}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

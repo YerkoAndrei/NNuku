@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Ñuku;
+namespace NNuku;
 
 [Application]
 public class MainApplication : MauiApplication

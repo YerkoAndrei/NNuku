@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Ñuku;
+namespace NNuku;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

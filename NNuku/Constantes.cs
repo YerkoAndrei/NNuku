@@ -1,20 +1,20 @@
 ﻿using System.Globalization;
 using Newtonsoft.Json;
 
-namespace Ñuku;
+namespace NNuku;
 
 public class Constantes
 {
-    private static string archivoNotas = "notas.ñuku";
+    private static string archivoNotas = "diario.ñuku";
     private static string nombreCarpeta = "Ñuku";
 
     public static bool GuardarNota(Nota nota)
     {
-        var carpetaNotasGuardadas = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nombreCarpeta);
-        var notasGuardadas = Path.Combine(carpetaNotasGuardadas, archivoNotas);
+        var carpetaDiario = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nombreCarpeta);
+        var archivoDiario = Path.Combine(carpetaDiario, archivoNotas);
 
-        if (!Directory.Exists(carpetaNotasGuardadas))
-            Directory.CreateDirectory(carpetaNotasGuardadas);
+        if (!Directory.Exists(carpetaDiario))
+            Directory.CreateDirectory(carpetaDiario);
 
         var notas = CargarNotas();
         notas.Add(nota);
@@ -22,7 +22,7 @@ public class Constantes
         try
         {
             var json = JsonConvert.SerializeObject(CargarNotas());
-            File.WriteAllText(notasGuardadas, json);
+            File.WriteAllText(archivoDiario, json);
             return true;
         }
         catch
@@ -33,19 +33,19 @@ public class Constantes
 
     public static List<Nota> CargarNotas()
     {
-        var carpetaNotasGuardadas = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nombreCarpeta);
-        var notasGuardadas = Path.Combine(carpetaNotasGuardadas, archivoNotas);
+        var carpetaDiario = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nombreCarpeta);
+        var archivoDiario = Path.Combine(carpetaDiario, archivoNotas);
 
-        if (!Directory.Exists(carpetaNotasGuardadas))
-            Directory.CreateDirectory(carpetaNotasGuardadas);
+        if (!Directory.Exists(carpetaDiario))
+            Directory.CreateDirectory(carpetaDiario);
 
-        if (!File.Exists(notasGuardadas))
+        if (!File.Exists(archivoDiario))
             return new List<Nota>();
 
         try
         {
             // Notas guardadas
-            var json = File.ReadAllText(notasGuardadas);
+            var json = File.ReadAllText(archivoDiario);
             var array = JsonConvert.DeserializeObject<Nota[]>(json);
 
             return array.ToList();
@@ -61,6 +61,7 @@ public class Constantes
         var notas = CargarNotas();
 
         // Exportar a archivo .txt
+        // raiz disco duro android
 
         return true;
     }
