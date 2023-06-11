@@ -2,9 +2,9 @@
 <!--YerkoAndrei-->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Shell.BackgroundColor="#FF787864"
              x:Class="NNuku.MainPage"
-             Title="Ñuku">
+             Shell.BackgroundColor="#FF787864"
+             BackgroundColor="Black">
 
     <ContentPage.Resources>
         <!--Colores-->
@@ -19,7 +19,7 @@
         <ToolbarItem Text="Exportar" Clicked="EnClicExportar"/>
     </ContentPage.ToolbarItems>
 
-    <Grid BackgroundColor="{StaticResource ColorFondo}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="9*"/>
