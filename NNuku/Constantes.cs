@@ -21,7 +21,7 @@ public class Constantes
 
         try
         {
-            var json = JsonConvert.SerializeObject(CargarNotas());
+            var json = JsonConvert.SerializeObject(notas);
             File.WriteAllText(archivoDiario, json);
             return true;
         }
