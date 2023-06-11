@@ -17,6 +17,7 @@ public partial class Diario : ContentPage
             var dataNota = new DataNota();
             dataNota.Fecha = FormatearFechaCorta(notas[i].Fecha);
             dataNota.Texto = notas[i].Texto;
+            dataNotas.Add(dataNota);
         }
 
         diario.ItemsSource = dataNotas;
