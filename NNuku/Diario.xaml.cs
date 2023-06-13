@@ -43,13 +43,11 @@ public partial class Diario : ContentPage
         {
             if (BorrarNotas(nota))
             {
+                VibrarPositivo();
                 CargarDiario();
-                // mensaje correcto
             }
             else
-            {
-                // mensaje error
-            }
+                VibrarNegativo();
         }
     }
 

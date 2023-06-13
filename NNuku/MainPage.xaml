@@ -50,6 +50,6 @@
                 TextColor="{StaticResource ColorTexto}"
                 FontSize="{DynamicResource tamañoTexto}"
                 Margin="20,2,20,20"
-                Text="texto"/>
+                Text=""/>
     </Grid>
 </ContentPage>

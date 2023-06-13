@@ -41,16 +41,13 @@ public partial class MainPage : ContentPage
         // Guarda nota
         if (GuardarNota(nuevaNota))
         {
-            // mensaje correcto
-            //SemanticScreenReader.Announce(CounterBtn.Text);
-
+            VibrarPositivo();
             nota.Text = string.Empty;
+
             Application.Current.Quit();
         }
         else
-        {
-            // mensaje error
-        }
+            VibrarNegativo();
     }
 
     private void EnClicGuardarYSalir(object sender, EventArgs e)
@@ -69,13 +66,11 @@ public partial class MainPage : ContentPage
             // Guarda nota
             if (GuardarNota(nuevaNota))
             {
-                // mensaje correcto
                 nota.Text = string.Empty;
+                VibrarPositivo();
             }
             else
-            {
-                // mensaje error
-            }
+                VibrarNegativo();
         }
 
         App.Current.MainPage = new NavigationPage(new Diario());
@@ -84,12 +79,8 @@ public partial class MainPage : ContentPage
     private void EnClicExportar(object sender, EventArgs e)
     {
         if (ExportarNotas())
-        {
-            // mensaje correcto
-        }
+            VibrarPositivo();
         else
-        {
-            // mensaje error
-        }
+            VibrarNegativo();
     }
 }

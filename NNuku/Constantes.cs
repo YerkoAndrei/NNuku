@@ -10,6 +10,16 @@ public class Constantes
     private static string archivoNotas = "diario.ñuku";
     private static string nombreCarpeta = "Ñuku";
 
+    public static void VibrarPositivo()
+    {
+        Vibration.Default.Vibrate(TimeSpan.FromSeconds(1));
+    }
+
+    public static void VibrarNegativo()
+    {
+        Vibration.Default.Vibrate(TimeSpan.FromSeconds(3));
+    }
+
     public static bool GuardarNota(Nota nota)
     {
         var carpetaDiario = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nombreCarpeta);
