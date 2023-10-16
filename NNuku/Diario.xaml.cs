@@ -1,12 +1,8 @@
 namespace NNuku;
-
 using static Constantes;
 
 public partial class Diario : ContentPage
 {
-    private double tamañoFecha = 14;
-    private double tamañoTexto = 18;
-
     public Diario()
 	{
 		InitializeComponent();
@@ -33,15 +29,19 @@ public partial class Diario : ContentPage
         return true;
     }
 
+    private void EnClicNuevaNota(object sender, EventArgs e)
+    {
+        App.Current.MainPage = new NavigationPage(new MainPage());
+    }
+
     public async void EnClicNota(object sender, SelectedItemChangedEventArgs e)
     {
         var nota = (Nota)e.SelectedItem;
-
         bool borrar = await DisplayAlert("¿Borrar nota?", nota.Fecha, "Sí", "No");
 
         if(borrar)
         {
-            if (BorrarNotas(nota))
+            if (BorrarNota(nota))
             {
                 VibrarPositivo();
                 CargarDiario();
@@ -51,8 +51,11 @@ public partial class Diario : ContentPage
         }
     }
 
-    private void EnClicNuevaNota(object sender, EventArgs e)
+    private void EnClicExportar(object sender, EventArgs e)
     {
-        App.Current.MainPage = new NavigationPage(new MainPage());
+        if (ExportarNotas())
+            VibrarPositivo();
+        else
+            VibrarNegativo();
     }
 }

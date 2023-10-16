@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace NNuku;
 
-public class Constantes
+public static class Constantes
 {
     private static string ISO8006 = "yyyy-MM-ddThh:mm:ss";
 
@@ -12,12 +12,12 @@ public class Constantes
 
     public static void VibrarPositivo()
     {
-        Vibration.Default.Vibrate(TimeSpan.FromSeconds(1));
+        Vibration.Default.Vibrate(TimeSpan.FromSeconds(0.5));
     }
 
     public static void VibrarNegativo()
     {
-        Vibration.Default.Vibrate(TimeSpan.FromSeconds(3));
+        Vibration.Default.Vibrate(TimeSpan.FromSeconds(2));
     }
 
     public static bool GuardarNota(Nota nota)
@@ -67,7 +67,7 @@ public class Constantes
         }
     }
 
-    public static bool BorrarNotas(Nota nota)
+    public static bool BorrarNota(Nota nota)
     {
         var carpetaDiario = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), nombreCarpeta);
         var archivoDiario = Path.Combine(carpetaDiario, archivoNotas);

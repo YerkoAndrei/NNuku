@@ -1,13 +1,9 @@
 ﻿namespace NNuku;
-
 using static Constantes;
 
 public partial class MainPage : ContentPage
 {
     private bool guardado;
-
-    private double tamañoFecha = 18;
-    private double tamañoTexto = 22;
 
     public MainPage()
     {
@@ -34,9 +30,11 @@ public partial class MainPage : ContentPage
         if (nota.Text.Length <= 0)
             return;
 
-        var nuevaNota = new Nota();
-        nuevaNota.Fecha = FormatearFechaEstándar(DateTime.Now);
-        nuevaNota.Texto = nota.Text;
+        var nuevaNota = new Nota
+        {
+            Fecha = FormatearFechaEstándar(DateTime.Now),
+            Texto = nota.Text
+        };
 
         // Guarda nota
         if (GuardarNota(nuevaNota))
@@ -66,21 +64,13 @@ public partial class MainPage : ContentPage
             // Guarda nota
             if (GuardarNota(nuevaNota))
             {
-                nota.Text = string.Empty;
                 VibrarPositivo();
+                nota.Text = string.Empty;
             }
             else
                 VibrarNegativo();
         }
 
         App.Current.MainPage = new NavigationPage(new Diario());
-    }
-
-    private void EnClicExportar(object sender, EventArgs e)
-    {
-        if (ExportarNotas())
-            VibrarPositivo();
-        else
-            VibrarNegativo();
     }
 }
