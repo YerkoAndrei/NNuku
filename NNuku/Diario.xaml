@@ -17,6 +17,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Nueva nota" Clicked="EnClicNuevaNota"/>
+        <ToolbarItem Text="Exportar" Clicked="EnClicExportar"/>
     </ContentPage.ToolbarItems>
     
     <Grid>
@@ -28,12 +29,12 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
-                                <RowDefinition Height="9*"/>
+                                <RowDefinition Height="8*"/>
                             </Grid.RowDefinitions>
 
                             <BoxView Grid.Row="0" Margin="0,0,0,0" HeightRequest="1" Color="{StaticResource ColorDeco}" IsVisible="True"/>
-                            <Label Grid.Row="1" Text="{Binding Fecha}" TextColor="{StaticResource ColorFecha}" FontSize="{DynamicResource tamañoFecha}"/>
-                            <Label Grid.Row="2" Text="{Binding Texto}" TextColor="{StaticResource ColorTexto}" FontSize="{DynamicResource tamañoTexto}"/>
+                            <Label Grid.Row="1" Text="{Binding Fecha}" TextColor="{StaticResource ColorFecha}" FontSize="14"/>
+                            <Label Grid.Row="2" Text="{Binding Texto}" TextColor="{StaticResource ColorTexto}" FontSize="18"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

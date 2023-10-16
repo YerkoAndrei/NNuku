@@ -4,7 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NNuku.MainPage"
              Shell.BackgroundColor="#FF787864"
-             BackgroundColor="Black">
+             BackgroundColor="Black"
+             Title="Ñuku">
 
     <ContentPage.Resources>
         <!--Colores-->
@@ -16,7 +17,6 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Guardar y Salir" Clicked="EnClicGuardarYSalir"/>
         <ToolbarItem Text="Ver notas"  Clicked="EnClicVerNotas"/>
-        <ToolbarItem Text="Exportar" Clicked="EnClicExportar"/>
     </ContentPage.ToolbarItems>
 
     <Grid>
@@ -41,14 +41,14 @@
         <!--Fecha-->
         <Label Grid.Row="0" x:Name="fecha"
                TextColor="{StaticResource ColorTexto}"
-               FontSize="{DynamicResource tamañoFecha}"
+               FontSize="18"
                HorizontalTextAlignment="Center"
                Padding="0,22,0,0"/>
 
         <!--Texto nota-->
         <Editor Grid.Row="1" x:Name="nota"
                 TextColor="{StaticResource ColorTexto}"
-                FontSize="{DynamicResource tamañoTexto}"
+                FontSize="12"
                 Margin="20,2,20,20"
                 Text=""/>
     </Grid>
