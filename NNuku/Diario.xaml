@@ -19,7 +19,7 @@
         <ToolbarItem Text="Nueva nota" Clicked="EnClicNuevaNota"/>
         <ToolbarItem Text="Exportar" Clicked="EnClicExportar"/>
     </ContentPage.ToolbarItems>
-    
+
     <Grid>
         <ListView x:Name="diario" ItemSelected="EnClicNota">
             <ListView.ItemTemplate>
@@ -27,12 +27,12 @@
                     <ViewCell>
                         <Grid Padding="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="8*"/>
+                                <RowDefinition Height="15"/>
+                                <RowDefinition Height="Auto"/>
+                                <!--<RowDefinition Height="Auto"/> -->
                             </Grid.RowDefinitions>
 
-                            <BoxView Grid.Row="0" Margin="0,0,0,0" HeightRequest="1" Color="{StaticResource ColorDeco}" IsVisible="True"/>
+                            <!--<BoxView Grid.Row="0" Margin="0,0,0,0" Color="{StaticResource ColorDeco}" IsVisible="True"/> -->
                             <Label Grid.Row="1" Text="{Binding Fecha}" TextColor="{StaticResource ColorFecha}" FontSize="14"/>
                             <Label Grid.Row="2" Text="{Binding Texto}" TextColor="{StaticResource ColorTexto}" FontSize="18"/>
                         </Grid>

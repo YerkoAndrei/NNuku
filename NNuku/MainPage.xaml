@@ -43,7 +43,7 @@
                TextColor="{StaticResource ColorTexto}"
                FontSize="18"
                HorizontalTextAlignment="Center"
-               Padding="0,22,0,0"/>
+               Padding="0,20,0,0"/>
 
         <!--Texto nota-->
         <Editor Grid.Row="1" x:Name="nota"

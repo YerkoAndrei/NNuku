@@ -1,4 +1,6 @@
 ﻿using System.Globalization;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using Newtonsoft.Json;
 
 namespace NNuku;
@@ -10,14 +12,23 @@ public static class Constantes
     private static string archivoNotas = "diario.ñuku";
     private static string nombreCarpeta = "Ñuku";
 
-    public static void VibrarPositivo()
+    public static void MostrarPositivo()
     {
-        Vibration.Default.Vibrate(TimeSpan.FromSeconds(0.5));
+        Vibration.Default.Vibrate(TimeSpan.FromSeconds(0.2));
+        //MostrarMensaje("Guardado");
     }
 
-    public static void VibrarNegativo()
+    public static void MostrarNegativo()
     {
-        Vibration.Default.Vibrate(TimeSpan.FromSeconds(2));
+        Vibration.Default.Vibrate(TimeSpan.FromSeconds(1));
+        //MostrarMensaje("Error");
+    }
+
+    private static async void MostrarMensaje(string mensaje)
+    {
+        var cancellationTokenSource = new CancellationTokenSource();
+        var toast = Toast.Make(mensaje, ToastDuration.Short);
+        await toast.Show(cancellationTokenSource.Token);
     }
 
     public static bool GuardarNota(Nota nota)

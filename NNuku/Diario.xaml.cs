@@ -3,7 +3,7 @@ using static Constantes;
 
 public partial class Diario : ContentPage
 {
-    public Diario()
+	public Diario()
 	{
 		InitializeComponent();
         CargarDiario();
@@ -39,23 +39,23 @@ public partial class Diario : ContentPage
         var nota = (Nota)e.SelectedItem;
         bool borrar = await DisplayAlert("¿Borrar nota?", nota.Fecha, "Sí", "No");
 
-        if(borrar)
+        if (borrar)
         {
             if (BorrarNota(nota))
             {
-                VibrarPositivo();
+                MostrarPositivo();
                 CargarDiario();
             }
             else
-                VibrarNegativo();
+                MostrarNegativo();
         }
     }
 
     private void EnClicExportar(object sender, EventArgs e)
     {
         if (ExportarNotas())
-            VibrarPositivo();
+            MostrarPositivo();
         else
-            VibrarNegativo();
+            MostrarNegativo();
     }
 }

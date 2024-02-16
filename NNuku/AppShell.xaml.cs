@@ -1,9 +1,10 @@
-﻿namespace NNuku;
-
-public partial class AppShell : Shell
+﻿namespace NNuku
 {
-	public AppShell()
-	{
-		InitializeComponent();
-	}
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
+        }
+    }
 }

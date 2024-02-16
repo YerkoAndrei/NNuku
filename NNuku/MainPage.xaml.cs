@@ -39,13 +39,13 @@ public partial class MainPage : ContentPage
         // Guarda nota
         if (GuardarNota(nuevaNota))
         {
-            VibrarPositivo();
+            MostrarPositivo();
             nota.Text = string.Empty;
 
             Application.Current.Quit();
         }
         else
-            VibrarNegativo();
+            MostrarNegativo();
     }
 
     private void EnClicGuardarYSalir(object sender, EventArgs e)
@@ -57,18 +57,20 @@ public partial class MainPage : ContentPage
     {
         if (nota.Text.Length > 0)
         {
-            var nuevaNota = new Nota();
-            nuevaNota.Fecha = FormatearFechaEstándar(DateTime.Now);
-            nuevaNota.Texto = nota.Text;
+            var nuevaNota = new Nota
+            {
+                Fecha = FormatearFechaEstándar(DateTime.Now),
+                Texto = nota.Text
+            };
 
             // Guarda nota
             if (GuardarNota(nuevaNota))
             {
-                VibrarPositivo();
+                MostrarPositivo();
                 nota.Text = string.Empty;
             }
             else
-                VibrarNegativo();
+                MostrarNegativo();
         }
 
         App.Current.MainPage = new NavigationPage(new Diario());
