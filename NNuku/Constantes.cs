@@ -128,8 +128,8 @@ public static class Constantes
         charArray[0] = char.ToUpper(charArray[0]);
         día = new string(charArray);
 
-        var fechaHora = fecha.ToString("dd/MM/yyyy  hh:mm:ss", CultureInfo.InvariantCulture);
-        var tiempo = fecha.ToString("tt", CultureInfo.InvariantCulture).ToLower();
+        var fechaHora = fecha.ToString("dd/MM/yyyy  hh:mm:ss", CultureInfo.CurrentCulture);
+        var tiempo = fecha.ToString("tt", CultureInfo.CurrentCulture).ToLower();
 
         return día + "  " + fechaHora + " " + tiempo;
     }
@@ -137,8 +137,8 @@ public static class Constantes
     public static string FormatearFechaCorta(string fecha)
     {
         var fechaDT = DateTime.Parse(fecha, new CultureInfo("cl"));
-        var fechaHora = fechaDT.ToString("dd/MM/yyyy  hh:mm:ss", CultureInfo.InvariantCulture);
-        var tiempo = fechaDT.ToString("tt", CultureInfo.InvariantCulture).ToLower();
+        var fechaHora = fechaDT.ToString("dd/MM/yyyy  hh:mm:ss", CultureInfo.CurrentCulture);
+        var tiempo = fechaDT.ToString("tt", CultureInfo.CurrentCulture).ToLower();
 
         return fechaHora + " " + tiempo;
     }
@@ -152,7 +152,7 @@ public static class Constantes
     public static string FormatearFechaEstándar(string fecha)
     {
         var fechaDT = DateTime.Parse(fecha, new CultureInfo("cl"));
-        var fechaHora = fechaDT.ToString(ISO8006, CultureInfo.InvariantCulture);
+        var fechaHora = fechaDT.ToString(ISO8006, CultureInfo.CurrentCulture);
         return fechaHora;
     }
 }
