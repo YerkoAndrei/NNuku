@@ -7,7 +7,7 @@
              Background="Black">
 
   <!-- Página -->
-  <Grid ShowGridLines="True" RowDefinitions="0.5*, 9.5*">
+  <Grid ShowGridLines="True" RowDefinitions="40, *">
 
     <!-- Botones -->
     <Grid Grid.Row="0">
@@ -15,7 +15,7 @@
               HotKey="Escape"
               IsVisible="False" />
 
-      <Button Click=""
+      <Button Click="EnClicExportar"
               Background="AntiqueWhite"
               HorizontalAlignment="Left"
               Width="140">
@@ -24,7 +24,7 @@
                    Foreground="Black"/>
       </Button>
 
-      <Button Click=""
+      <Button Click="EnClicNuevaNota"
               Background="AntiqueWhite"
               Foreground="Black"
               HorizontalAlignment="Right"

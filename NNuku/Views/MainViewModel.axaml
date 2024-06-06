@@ -18,7 +18,7 @@
   </UserControl.Styles>
 
   <!-- Página -->
-  <Grid ShowGridLines="True" RowDefinitions="0.5*, 0.5*, 9*">
+  <Grid ShowGridLines="True" RowDefinitions="40, 40, *">
 
     <!-- Botones -->
     <Grid Grid.Row="0">
