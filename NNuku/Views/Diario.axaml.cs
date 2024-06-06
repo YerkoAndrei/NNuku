@@ -19,9 +19,9 @@ public partial class Diario : UserControl
         notas = notas.OrderByDescending(o => o.Fecha).ToList();
 
         // Formatea fechas
-        for (int i = 0; i < notas.Count; i++)
+        foreach (var nota in notas)
         {
-            notas[i].Fecha = FormatearFechaCorta(notas[i].Fecha);
+            nota.Fecha = FormatearFechaCorta(nota.Fecha);
         }
 
         Notas.ItemsSource = notas;

@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System;
-using System.Globalization;
+﻿using System;
 using System.IO;
+using System.Linq;
+using System.Globalization;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
 //using CommunityToolkit.Maui.Alerts;
 //using CommunityToolkit.Maui.Core;
 using Newtonsoft.Json;
-using System.Linq;
 
 namespace NNuku;
 
@@ -96,9 +96,6 @@ public static class Constantes
         {
             // Notas guardadas
             var json = File.ReadAllText(archivoDiario);
-            if(string.IsNullOrEmpty(json))
-                return false;
-
             var lista = JsonConvert.DeserializeObject<Nota[]>(json).ToList();
 
             // Borra nota
@@ -121,7 +118,16 @@ public static class Constantes
 
     public static bool ExportarNotas()
     {
+        // Formato simple
+        var formato = string.Empty;
         var notas = CargarNotas();
+        notas = notas.OrderByDescending(o => o.Fecha).ToList();
+
+        foreach (var nota in notas)
+        {
+            formato += FormatearFechaCorta(nota.Fecha) + ": " + nota.Texto;
+            formato += Environment.NewLine;
+        }
 
         // Exportar a archivo .txt
         // raiz disco duro android
