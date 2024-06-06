@@ -1,7 +1,13 @@
-﻿using System.Globalization;
-using CommunityToolkit.Maui.Alerts;
-using CommunityToolkit.Maui.Core;
+﻿using System.Collections.Generic;
+using System;
+using System.Globalization;
+using System.IO;
+using System.Threading.Tasks;
+using System.Threading;
+//using CommunityToolkit.Maui.Alerts;
+//using CommunityToolkit.Maui.Core;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace NNuku;
 
@@ -14,21 +20,21 @@ public static class Constantes
 
     public static void MostrarPositivo()
     {
-        Vibration.Default.Vibrate(TimeSpan.FromSeconds(0.2));
+        //Vibration.Default.Vibrate(TimeSpan.FromSeconds(0.2));
         //MostrarMensaje("Guardado");
     }
 
     public static void MostrarNegativo()
     {
-        Vibration.Default.Vibrate(TimeSpan.FromSeconds(1));
+        //Vibration.Default.Vibrate(TimeSpan.FromSeconds(1));
         //MostrarMensaje("Error");
     }
 
     private static async void MostrarMensaje(string mensaje)
     {
-        var cancellationTokenSource = new CancellationTokenSource();
-        var toast = Toast.Make(mensaje, ToastDuration.Short);
-        await toast.Show(cancellationTokenSource.Token);
+        //var cancellationTokenSource = new CancellationTokenSource();
+        //var toast = Toast.Make(mensaje, ToastDuration.Short);
+        //await toast.Show(cancellationTokenSource.Token);        
     }
 
     public static bool GuardarNota(Nota nota)
@@ -46,8 +52,8 @@ public static class Constantes
         try
         {
             // Sobreescribe diario
-            var json = JsonConvert.SerializeObject(notas);
-            File.WriteAllText(archivoDiario, json);
+            //var json = JsonConvert.SerializeObject(notas);
+            //File.WriteAllText(archivoDiario, json);
             return true;
         }
         catch
@@ -90,6 +96,9 @@ public static class Constantes
         {
             // Notas guardadas
             var json = File.ReadAllText(archivoDiario);
+            if(string.IsNullOrEmpty(json))
+                return false;
+
             var lista = JsonConvert.DeserializeObject<Nota[]>(json).ToList();
 
             // Borra nota
