@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
+             x:Class="NNuku.Views.Diario"             
+             Background="Black">
+
+  <!-- Página -->
+  <Grid ShowGridLines="True" RowDefinitions="0.5*, 9.5*">
+
+    <!-- Botones -->
+    <Grid Grid.Row="0">
+      <Button Command="{Binding VolverAtras}"
+              HotKey="Escape"
+              IsVisible="False" />
+
+      <Button Click=""
+              Background="AntiqueWhite"
+              HorizontalAlignment="Left"
+              Width="140">
+        <TextBlock Text="Exportar"
+                   HorizontalAlignment="Left"
+                   Foreground="Black"/>
+      </Button>
+
+      <Button Click=""
+              Background="AntiqueWhite"
+              Foreground="Black"
+              HorizontalAlignment="Right"
+              Width="140">
+        <TextBlock Text="Nueva nota"
+                   HorizontalAlignment="Right"
+                   Foreground="Black"/>
+      </Button>
+    </Grid>
+
+    <!-- Fecha -->
+    <Grid Grid.Row="1">
+      <ListBox Name="Notas"
+               Background="Transparent"/>
+    </Grid>
+  </Grid>
+  
+</UserControl>

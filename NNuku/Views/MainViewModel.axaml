@@ -7,8 +7,18 @@
              x:Class="NNuku.Views.MainView"
              Background="Black">
 
+  <!-- Estilos -->
+  <UserControl.Styles>
+    <Style Selector="TextBox /template/ TextBlock#PART_Watermark">
+      <Setter Property="Foreground" Value="AntiqueWhite" />
+    </Style>
+    <Style Selector="Button:focus">
+      <Setter Property="Background" Value="White" />
+    </Style>
+  </UserControl.Styles>
+
   <!-- Página -->
-  <Grid ShowGridLines="True" RowDefinitions="0.5*, 9.5*">
+  <Grid ShowGridLines="True" RowDefinitions="0.5*, 0.5*, 9*">
 
     <!-- Botones -->
     <Grid Grid.Row="0">
@@ -16,21 +26,20 @@
               HotKey="Escape"
               IsVisible="False" />
 
-      <Button Click=""
+      <Button Click="EnClicNotas"
               Background="AntiqueWhite"
               HorizontalAlignment="Left"
               Width="140">
-        <TextBlock Text="Exportar"
+        <TextBlock Text="Notas"
                    HorizontalAlignment="Left"
                    Foreground="Black"/>
       </Button>
 
-      <Button Click=""
+      <Button Click="EnClicGuardarYSalir"
               Background="AntiqueWhite"
-              Foreground="Black"
               HorizontalAlignment="Right"
               Width="140">
-        <TextBlock Text="Nueva nota"
+        <TextBlock Text="Guardar y salir"
                    HorizontalAlignment="Right"
                    Foreground="Black"/>
       </Button>
@@ -38,7 +47,25 @@
 
     <!-- Fecha -->
     <Grid Grid.Row="1">
-      
+      <TextBlock Name="Fecha"
+                 FontSize="20"
+                 Foreground="AntiqueWhite"
+                 Text="día dd/MM/yyyy  hh:mm:ss"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"/>
+    </Grid>
+
+    <!-- Texto nota -->
+    <Grid Grid.Row="2">
+      <TextBox Name="Nota"
+               FontSize="16"
+               Watermark="Nueva nota"
+               Background="Transparent"
+               Foreground="AntiqueWhite"
+               TextWrapping="Wrap"
+               Padding="10, 10, 10, 10"
+               HorizontalAlignment="Stretch">
+      </TextBox>
     </Grid>
   </Grid>
 </UserControl>

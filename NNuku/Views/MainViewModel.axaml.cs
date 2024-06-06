@@ -1,64 +1,61 @@
-﻿using Avalonia.Controls;
-using System;
+﻿using System;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Interactivity;
 
 namespace NNuku.Views;
 using static Constantes;
 
 public partial class MainView : UserControl
 {
+    private string fecha;
+
     public MainView()
     {
         InitializeComponent();
-        //CargarDiario();
-    }
-    /*
-    private void CargarDiario()
-    {
-        var notas = CargarNotas();
-        notas = notas.OrderByDescending(o => o.Fecha).ToList();
 
-        // Formatea fechas
-        for (int i = 0; i < notas.Count; i++)
+        Fecha.Text = FormatearFechaLarga(DateTime.Now);
+        fecha = FormatearFechaEstándar(DateTime.Now);
+    }
+
+    private void CrearNota()
+    {
+        if (string.IsNullOrEmpty(Nota.Text))
+            return;
+
+        var nuevaNota = new Nota
         {
-            notas[i].Fecha = FormatearFechaCorta(notas[i].Fecha);
-        }
+            Fecha = fecha,
+            Texto = Nota.Text
+        };
 
-        diario.ItemsSource = notas;
-    }
-
-    protected override bool OnBackButtonPressed()
-    {
-        App.Current.MainPage = new NavigationPage(new MainPage());
-        return true;
-    }
-
-    private void EnClicNuevaNota(object sender, EventArgs e)
-    {
-        App.Current.MainPage = new NavigationPage(new MainPage());
-    }
-
-    public async void EnClicNota(object sender, SelectedItemChangedEventArgs e)
-    {
-        var nota = (Nota)e.SelectedItem;
-        bool borrar = await DisplayAlert("¿Borrar nota?", nota.Fecha, "Sí", "No");
-
-        if (borrar)
+        // Guarda nota
+        if (GuardarNota(nuevaNota))
         {
-            if (BorrarNota(nota))
-            {
-                MostrarPositivo();
-                CargarDiario();
-            }
-            else
-                MostrarNegativo();
-        }
-    }
-
-    private void EnClicExportar(object sender, EventArgs e)
-    {
-        if (ExportarNotas())
             MostrarPositivo();
+            Nota.Text = string.Empty;
+        }
         else
             MostrarNegativo();
-    }*/
+    }
+
+    private void VolverAtras()
+    {
+        CrearNota();
+        (Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow?.Close();
+    }
+
+    public void EnClicGuardarYSalir(object sender, RoutedEventArgs args)
+    {
+        CrearNota();
+        (Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow?.Close();
+    }
+
+    public void EnClicNotas(object sender, RoutedEventArgs args)
+    {
+        CrearNota();
+        var diario = new MainView();
+        //App.Current.MainPage = new NavigationPage(new Diario());
+    }
 }

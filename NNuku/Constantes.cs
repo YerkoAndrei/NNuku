@@ -52,8 +52,8 @@ public static class Constantes
         try
         {
             // Sobreescribe diario
-            //var json = JsonConvert.SerializeObject(notas);
-            //File.WriteAllText(archivoDiario, json);
+            var json = JsonConvert.SerializeObject(notas);
+            File.WriteAllText(archivoDiario, json);
             return true;
         }
         catch
