@@ -24,11 +24,7 @@ public partial class MainView : UserControl
         if (string.IsNullOrEmpty(Nota.Text))
             return;
 
-        var nuevaNota = new Nota
-        {
-            Fecha = fecha,
-            Texto = Nota.Text
-        };
+        var nuevaNota = new Nota(fecha, Nota.Text);
 
         // Guarda nota
         if (GuardarNota(nuevaNota))
