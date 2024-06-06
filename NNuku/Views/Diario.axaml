@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
-             x:Class="NNuku.Views.Diario"             
+             x:Class="NNuku.Views.Diario"
              Background="Black">
 
   <!-- Página -->
@@ -11,9 +11,6 @@
 
     <!-- Botones -->
     <Grid Grid.Row="0">
-      <Button Command="{Binding VolverAtras}"
-              HotKey="Escape"
-              IsVisible="False" />
 
       <Button Click="EnClicExportar"
               Background="AntiqueWhite"

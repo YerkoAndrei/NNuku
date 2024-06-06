@@ -1,6 +1,7 @@
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using NNuku.ViewModels;
 
 namespace NNuku.Views;
 using static Constantes;
@@ -29,12 +30,12 @@ public partial class Diario : UserControl
     
     private void VolverAtras()
     {
-        //App.Current.MainPage = new NavigationPage(new MainPage());
+        MainViewModel.instancia.AbirNuevaNotaCommand.Execute(null);
     }
 
     public void EnClicNuevaNota(object sender, RoutedEventArgs args)
     {
-        //App.Current.MainPage = new NavigationPage(new MainPage());
+        MainViewModel.instancia.AbirNuevaNotaCommand.Execute(sender);
     }
     /*
     public async void EnClicNota(object sender, SelectedItemChangedEventArgs e)

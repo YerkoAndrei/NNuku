@@ -129,6 +129,7 @@ public static class Constantes
             formato += Environment.NewLine;
         }
 
+        // PENDIENTE:
         // Exportar a archivo .txt
         // raiz disco duro android
 

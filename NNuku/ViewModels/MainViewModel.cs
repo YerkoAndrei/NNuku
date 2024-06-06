@@ -1,6 +1,40 @@
-﻿namespace NNuku.ViewModels;
+﻿using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using NNuku.Views;
+
+namespace NNuku.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
+    public static MainViewModel instancia;
 
+    [ObservableProperty]
+    private UserControl vista;
+
+    public MainViewModel()
+    {
+        instancia = this;
+        Vista = new NuevaNota();
+    }
+
+    [RelayCommand]
+    private void AbirNuevaNota()
+    {
+        Vista = new NuevaNota();
+    }
+
+    [RelayCommand]
+    private void AbirDiario()
+    {
+        Vista = new Diario();
+    }
+
+    [RelayCommand]
+    private void Cerrar()
+    {
+        (Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow?.Close();
+    }
 }
