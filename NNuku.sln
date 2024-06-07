@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NNuku", "NNuku\NNuku.csproj", "{47AB1223-2ACF-404F-9A87-080170777A0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NNuku", "NNuku\NNuku.csproj", "{BB83E80F-9373-42E2-B032-7EB867DDC619}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NNuku.Android", "NNuku.Android\NNuku.Android.csproj", "{9BD18148-F2AC-467E-9BD6-807683BC6843}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NNuku.Android", "NNuku.Android\NNuku.Android.csproj", "{E65047A9-E911-4101-9713-04665791465C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NNuku.Desktop", "NNuku.Desktop\NNuku.Desktop.csproj", "{F9CCC199-8A74-4F20-8B14-3DE39387D712}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NNuku.Desktop", "NNuku.Desktop\NNuku.Desktop.csproj", "{EA3B0AA7-E6ED-4A63-A0F3-DECCE99BD908}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,25 +15,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{47AB1223-2ACF-404F-9A87-080170777A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47AB1223-2ACF-404F-9A87-080170777A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47AB1223-2ACF-404F-9A87-080170777A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47AB1223-2ACF-404F-9A87-080170777A0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9BD18148-F2AC-467E-9BD6-807683BC6843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9BD18148-F2AC-467E-9BD6-807683BC6843}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9BD18148-F2AC-467E-9BD6-807683BC6843}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{9BD18148-F2AC-467E-9BD6-807683BC6843}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9BD18148-F2AC-467E-9BD6-807683BC6843}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9BD18148-F2AC-467E-9BD6-807683BC6843}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{F9CCC199-8A74-4F20-8B14-3DE39387D712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9CCC199-8A74-4F20-8B14-3DE39387D712}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9CCC199-8A74-4F20-8B14-3DE39387D712}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9CCC199-8A74-4F20-8B14-3DE39387D712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB83E80F-9373-42E2-B032-7EB867DDC619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB83E80F-9373-42E2-B032-7EB867DDC619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB83E80F-9373-42E2-B032-7EB867DDC619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB83E80F-9373-42E2-B032-7EB867DDC619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E65047A9-E911-4101-9713-04665791465C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E65047A9-E911-4101-9713-04665791465C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E65047A9-E911-4101-9713-04665791465C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E65047A9-E911-4101-9713-04665791465C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E65047A9-E911-4101-9713-04665791465C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E65047A9-E911-4101-9713-04665791465C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EA3B0AA7-E6ED-4A63-A0F3-DECCE99BD908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA3B0AA7-E6ED-4A63-A0F3-DECCE99BD908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA3B0AA7-E6ED-4A63-A0F3-DECCE99BD908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA3B0AA7-E6ED-4A63-A0F3-DECCE99BD908}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E35B4552-E78D-4EE2-9D34-498D21374AC6}
+		SolutionGuid = {CCBD17B1-35FF-469D-BF18-0DACC468A461}
 	EndGlobalSection
 EndGlobal
