@@ -35,6 +35,9 @@ public partial class MainViewModel : ViewModelBase
     [RelayCommand]
     private void Cerrar()
     {
-        (Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)?.MainWindow?.Close();
+        // Pruebas en escritorio
+        var escritorio = (Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime);
+        if (escritorio != null)
+            escritorio.MainWindow?.Close();
     }
 }
