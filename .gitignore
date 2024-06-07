@@ -14,7 +14,6 @@
 *.vs
 *.suo
 *.user
-*.csproj
 [Bb]in
 [Oo]bj
 package
