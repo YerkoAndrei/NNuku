@@ -12,21 +12,21 @@
     <!-- Botones -->
     <Grid Grid.Row="0">
 
-      <Button Click="EnClicExportar"
-              Background="AntiqueWhite"
-              HorizontalAlignment="Left"
-              Width="140">
-        <TextBlock Text="Exportar"
-                   HorizontalAlignment="Left"
-                   Foreground="Black"/>
-      </Button>
-
       <Button Click="EnClicNuevaNota"
               Background="AntiqueWhite"
               Foreground="Black"
-              HorizontalAlignment="Right"
+              HorizontalAlignment="Left"
               Width="140">
         <TextBlock Text="Nueva nota"
+                   HorizontalAlignment="Left"
+                   Foreground="Black"/>
+      </Button>
+      
+      <Button Click="EnClicExportar"
+              Background="AntiqueWhite"
+              HorizontalAlignment="Right"
+              Width="140">
+        <TextBlock Text="Exportar"
                    HorizontalAlignment="Right"
                    Foreground="Black"/>
       </Button>
