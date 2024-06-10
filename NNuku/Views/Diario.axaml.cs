@@ -8,6 +8,8 @@ using static Constantes;
 
 public partial class Diario : UserControl
 {
+    private Nota notaBorrar;
+
     public Diario()
     {
         InitializeComponent();
@@ -37,25 +39,39 @@ public partial class Diario : UserControl
     {
         MainViewModel.Instancia.AbirNuevaNotaCommand.Execute(sender);
     }
-    /*
-    public async void EnClicNota(object sender, SelectedItemChangedEventArgs e)
+
+    public void EnClicNota(object sender, SelectionChangedEventArgs args)
     {
-        var nota = (Nota)e.SelectedItem;
-        bool borrar = await DisplayAlert("¿Borrar nota?", nota.Fecha, "Sí", "No");
+        var nota = Notas.SelectedItem as Nota;
+        if (nota == null)
+            return;
 
-        if (borrar)
+        // Abre popup
+        notaBorrar = nota;
+        FechaBorrar.Text = nota.Fecha;
+        PopupBorrar.IsVisible = true;
+        Notas.SelectedIndex = -1;
+    }
+
+    public void EnClicSíBorrar(object sender, RoutedEventArgs args)
+    {
+        if (BorrarNota(notaBorrar))
         {
-            if (BorrarNota(nota))
-            {
-                MostrarPositivo();
-                CargarDiario();
-            }
-            else
-                MostrarNegativo();
+            MostrarPositivo();
+            CargarDiario();
         }
-    }*/
+        else
+            MostrarNegativo();
 
-    private void EnClicExportar(object sender, RoutedEventArgs args)
+        PopupBorrar.IsVisible = false;
+    }
+
+    public void EnClicNoBorrar(object sender, RoutedEventArgs args)
+    {
+        PopupBorrar.IsVisible = false;
+    }
+
+    public void EnClicExportar(object sender, RoutedEventArgs args)
     {
         if (ExportarNotas())
             MostrarPositivo();
