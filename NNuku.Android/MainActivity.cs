@@ -3,6 +3,7 @@ using Android.Content.PM;
 
 using Avalonia;
 using Avalonia.Android;
+using NNuku.ViewModels;
 
 namespace NNuku.Android;
 
@@ -18,5 +19,11 @@ public class MainActivity : AvaloniaMainActivity<App>
     {
         return base.CustomizeAppBuilder(builder)
             .WithInterFont();
+    }
+
+    public override void OnBackPressed()
+    {
+        MainViewModel.Instancia.EnClicAtrasCommand.Execute(null);
+        base.OnBackPressed();
     }
 }

@@ -27,15 +27,15 @@ public partial class Diario : UserControl
 
         Notas.ItemsSource = notas;
     }
-    
-    private void VolverAtras()
+
+    public void VolverAtras()
     {
-        MainViewModel.instancia.AbirNuevaNotaCommand.Execute(null);
+        MainViewModel.Instancia.AbirNuevaNotaCommand.Execute(null);
     }
 
     public void EnClicNuevaNota(object sender, RoutedEventArgs args)
     {
-        MainViewModel.instancia.AbirNuevaNotaCommand.Execute(sender);
+        MainViewModel.Instancia.AbirNuevaNotaCommand.Execute(sender);
     }
     /*
     public async void EnClicNota(object sender, SelectedItemChangedEventArgs e)

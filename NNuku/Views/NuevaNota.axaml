@@ -21,7 +21,6 @@
 
     <!-- Botones -->
     <Grid Grid.Row="0">
-
       <Button Click="EnClicNotas"
               Background="AntiqueWhite"
               HorizontalAlignment="Left"
@@ -30,7 +29,6 @@
                    HorizontalAlignment="Left"
                    Foreground="Black"/>
       </Button>
-
       <Button Click="EnClicGuardarYSalir"
               Background="AntiqueWhite"
               HorizontalAlignment="Right"

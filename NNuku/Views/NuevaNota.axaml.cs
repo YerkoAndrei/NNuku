@@ -35,21 +35,21 @@ public partial class NuevaNota : UserControl
             MostrarNegativo();
     }
 
-    private void VolverAtras()
+    public void VolverAtras()
     {
         CrearNota();
-        MainViewModel.instancia.CerrarCommand.Execute(null);
+        MainViewModel.Instancia.CerrarCommand.Execute(null);
     }
 
     public void EnClicGuardarYSalir(object sender, RoutedEventArgs args)
     {
         CrearNota();
-        MainViewModel.instancia.CerrarCommand.Execute(sender);
+        MainViewModel.Instancia.CerrarCommand.Execute(sender);
     }
 
     public void EnClicNotas(object sender, RoutedEventArgs args)
     {
         CrearNota();
-        MainViewModel.instancia.AbirDiarioCommand.Execute(sender);
+        MainViewModel.Instancia.AbirDiarioCommand.Execute(sender);
     }
 }

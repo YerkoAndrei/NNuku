@@ -18,6 +18,12 @@ public static class Constantes
     private static string archivoNotas = "diario.ñuku";
     private static string nombreCarpeta = "Ñuku";
 
+    public enum Páginas
+    {
+        nuevaNota,
+        diario,
+    }
+
     public static void MostrarPositivo()
     {
         //Vibration.Default.Vibrate(TimeSpan.FromSeconds(0.2));

@@ -10,8 +10,7 @@
   <Grid ShowGridLines="True" RowDefinitions="40, *">
 
     <!-- Botones -->
-    <Grid Grid.Row="0">
-
+    <Grid Grid.Row="0">      
       <Button Click="EnClicNuevaNota"
               Background="AntiqueWhite"
               Foreground="Black"
@@ -20,8 +19,7 @@
         <TextBlock Text="Nueva nota"
                    HorizontalAlignment="Left"
                    Foreground="Black"/>
-      </Button>
-      
+      </Button>      
       <Button Click="EnClicExportar"
               Background="AntiqueWhite"
               HorizontalAlignment="Right"
