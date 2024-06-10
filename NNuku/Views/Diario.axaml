@@ -12,15 +12,17 @@
     <Grid Grid.Row="0">
       <Button Click="EnClicNuevaNota"
               HorizontalAlignment="Left"
+              CornerRadius="10"
               Width="140">
         <TextBlock Text="Nueva nota"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Center"/>
       </Button>      
       <Button Click="EnClicExportar"
               HorizontalAlignment="Right"
+              CornerRadius="10"
               Width="140">
         <TextBlock Text="Exportar"
-                   HorizontalAlignment="Right"/>
+                   HorizontalAlignment="Center"/>
       </Button>
     </Grid>
 
@@ -31,7 +33,7 @@
                Background="Transparent">
         <ListBox.ItemTemplate>
           <DataTemplate>            
-            <Grid RowDefinitions="20, *" Margin="5, 20, 5, 0">
+            <Grid RowDefinitions="20, *" Margin="5, 5, 5, 10">
               <TextBlock Grid.Row="0"
                          Text="{Binding Fecha}"
                          FontWeight="Bold"
@@ -51,28 +53,34 @@
     <Grid Grid.Row="1"
           Name="PopupBorrar"
           IsVisible="False"
-          MinHeight="120"
-          MinWidth="350"
+          Width="350"
           RowDefinitions="*, *, *"
           VerticalAlignment="Center"
-          HorizontalAlignment="Center"
-          Background="DarkRed">
-
-      <TextBlock Grid.Row="0" Margin="5, 5, 5, 5"
+          HorizontalAlignment="Center">
+      
+      <Border Grid.RowSpan="3"
+              Background="#3C0000"
+              BorderBrush="Black"
+              BorderThickness="2"
+              CornerRadius="20" 
+              Margin="-4"/>
+      
+      <TextBlock Grid.Row="0" Margin="5, 5, 5, 15"
                  Text="¿Desea borrar la nota?"
-                 FontSize="20"
+                 FontSize="16"
                  HorizontalAlignment="Center"/>
       
-      <TextBlock Grid.Row="1" Margin="5, 5, 5, 5"
+      <TextBlock Grid.Row="1" Margin="5, 5, 5, 15"
                  Name="FechaBorrar"
                  Text="00/00/0000 00:00:00"
-                 FontSize="20"
+                 FontSize="16"
                  Foreground="AntiqueWhite"
                  HorizontalAlignment="Center"/>
 
       <Grid Grid.Row="2" Margin="5, 5, 5, 5">
         <Button Click="EnClicNoBorrar"
                 HorizontalAlignment="Left"
+                CornerRadius="10"
                 Width="100">
           <TextBlock Text="No"
                      FontSize="20"
@@ -81,6 +89,7 @@
         </Button>
         <Button Click="EnClicSíBorrar"
                 HorizontalAlignment="Right"
+                CornerRadius="10"
                 Width="100">
           <TextBlock Text="Sí"
                      FontSize="20"

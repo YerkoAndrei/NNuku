@@ -12,22 +12,24 @@
     <Grid Grid.Row="0">
       <Button Click="EnClicNotas"
               HorizontalAlignment="Left"
+              CornerRadius="10"
               Width="140">
         <TextBlock Text="Notas"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Center"/>
       </Button>
       <Button Click="EnClicGuardarYSalir"
               HorizontalAlignment="Right"
+              CornerRadius="10"
               Width="140">
         <TextBlock Text="Guardar y salir"
-                   HorizontalAlignment="Right"/>
+                   HorizontalAlignment="Center"/>
       </Button>
     </Grid>
 
     <!-- Fecha -->
     <Grid Grid.Row="1">
       <TextBlock Name="Fecha"
-                 FontSize="20"
+                 FontSize="18"
                  Foreground="AntiqueWhite"
                  Text="día dd/MM/yyyy  hh:mm:ss"
                  HorizontalAlignment="Center"
