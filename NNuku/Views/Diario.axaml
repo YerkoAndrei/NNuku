@@ -3,37 +3,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
-             x:Class="NNuku.Views.Diario"
-             Background="Black">
+             x:Class="NNuku.Views.Diario">
 
   <!-- Página -->
   <Grid ShowGridLines="True" RowDefinitions="40, *">
 
     <!-- Botones -->
-    <Grid Grid.Row="0">      
+    <Grid Grid.Row="0">
       <Button Click="EnClicNuevaNota"
-              Background="AntiqueWhite"
-              Foreground="Black"
               HorizontalAlignment="Left"
               Width="140">
         <TextBlock Text="Nueva nota"
-                   HorizontalAlignment="Left"
-                   Foreground="Black"/>
+                   HorizontalAlignment="Left"/>
       </Button>      
       <Button Click="EnClicExportar"
-              Background="AntiqueWhite"
               HorizontalAlignment="Right"
               Width="140">
         <TextBlock Text="Exportar"
-                   HorizontalAlignment="Right"
-                   Foreground="Black"/>
+                   HorizontalAlignment="Right"/>
       </Button>
     </Grid>
 
     <!-- Nota -->
     <Grid Grid.Row="1">
-      <ItemsControl Name="Notas">
-        <ItemsControl.ItemTemplate>
+      <ListBox Name="Notas"
+               SelectionChanged="EnClicNota"
+               Background="Transparent">
+        <ListBox.ItemTemplate>
           <DataTemplate>            
             <Grid RowDefinitions="20, *" Margin="5, 20, 5, 0">
               <TextBlock Grid.Row="0"
@@ -43,13 +39,55 @@
                          HorizontalAlignment="Left"/>
               <TextBlock Grid.Row="1"
                          Text="{Binding Texto}"
-                         Foreground="AntiqueWhite"
                          TextWrapping="Wrap"
                          HorizontalAlignment="Left"/>
             </Grid>
           </DataTemplate>
-        </ItemsControl.ItemTemplate>
-      </ItemsControl>
+        </ListBox.ItemTemplate>
+      </ListBox >
+    </Grid>
+    
+    <!-- Popup borrar -->
+    <Grid Grid.Row="1"
+          Name="PopupBorrar"
+          IsVisible="False"
+          MinHeight="120"
+          MinWidth="350"
+          RowDefinitions="*, *, *"
+          VerticalAlignment="Center"
+          HorizontalAlignment="Center"
+          Background="DarkRed">
+
+      <TextBlock Grid.Row="0" Margin="5, 5, 5, 5"
+                 Text="¿Desea borrar la nota?"
+                 FontSize="20"
+                 HorizontalAlignment="Center"/>
+      
+      <TextBlock Grid.Row="1" Margin="5, 5, 5, 5"
+                 Name="FechaBorrar"
+                 Text="00/00/0000 00:00:00"
+                 FontSize="20"
+                 Foreground="AntiqueWhite"
+                 HorizontalAlignment="Center"/>
+
+      <Grid Grid.Row="2" Margin="5, 5, 5, 5">
+        <Button Click="EnClicNoBorrar"
+                HorizontalAlignment="Left"
+                Width="100">
+          <TextBlock Text="No"
+                     FontSize="20"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Bottom"/>
+        </Button>
+        <Button Click="EnClicSíBorrar"
+                HorizontalAlignment="Right"
+                Width="100">
+          <TextBlock Text="Sí"
+                     FontSize="20"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Bottom"/>
+        </Button>
+      </Grid>
     </Grid>
   </Grid>
   
