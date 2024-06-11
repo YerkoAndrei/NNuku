@@ -96,4 +96,26 @@ public class MainActivity : AvaloniaMainActivity<App>
             MostrarMensajeError();
         }
     }
+
+#pragma warning disable CA1422
+#pragma warning disable CA1416
+    // Advertencias que se resuelven con el if else
+    // No funciona
+    public void Vibrar()
+    {
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
+        {
+            var vibrador = GetSystemService(VibratorManagerService) as VibratorManager;
+            if (vibrador != null && vibrador.DefaultVibrator.HasVibrator)
+                vibrador.DefaultVibrator.Vibrate(200);
+        }
+        else if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+        {
+            var vibrador = Vibrator.FromContext(this);
+            if (vibrador != null && vibrador.HasVibrator)
+                vibrador.Vibrate(200);
+        }
+    }
+#pragma warning restore CA1422
+#pragma warning restore CA1416
 }
