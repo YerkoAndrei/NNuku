@@ -6,7 +6,7 @@
              x:Class="NNuku.Views.Diario">
 
   <!-- Página -->
-  <Grid RowDefinitions="50, *">
+  <Grid RowDefinitions="55, *">
 
     <!-- Botones -->
     <Grid Grid.Row="0">
@@ -18,7 +18,7 @@
       <Button Click="EnClicNuevaNota"
               Margin="5, 0, 0, 0"
               Width="160"
-              Height="40"
+              Height="45"
               CornerRadius="10"
               HorizontalAlignment="Left">
         <TextBlock Text="Nueva nota"
@@ -29,7 +29,7 @@
       <Button Click="EnClicExportar"
               Margin="0, 0, 5, 0"
               Width="160"
-              Height="40"
+              Height="45"
               CornerRadius="10"
               HorizontalAlignment="Right">
         <TextBlock Text="Exportar"

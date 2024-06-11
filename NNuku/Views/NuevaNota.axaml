@@ -6,14 +6,14 @@
              x:Class="NNuku.Views.NuevaNota">
 
   <!-- Página -->
-  <Grid RowDefinitions="50, 50, *">
+  <Grid RowDefinitions="55, 55, *">
     
     <!-- Botones -->
     <Grid Grid.Row="0">
       <Button Click="EnClicNotas"
               Margin="5, 0, 0, 0"
               Width="160"
-              Height="40"
+              Height="45"
               CornerRadius="10"
               HorizontalAlignment="Left">
         <TextBlock Text="Notas"
@@ -24,7 +24,7 @@
       <Button Click="EnClicGuardar"
               Margin="0, 0, 5, 0"
               Width="160"
-              Height="40"
+              Height="45"
               CornerRadius="10"
               HorizontalAlignment="Right">
         <TextBlock Text="Guardar"
