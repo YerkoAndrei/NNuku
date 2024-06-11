@@ -6,7 +6,7 @@
         xmlns:views="clr-namespace:NNuku.Views"
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
         x:Class="NNuku.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="NNuku">
+        Icon="/Assets/Ícono.ico"
+        Title="Ñuku">
         <views:MainView />
 </Window>
