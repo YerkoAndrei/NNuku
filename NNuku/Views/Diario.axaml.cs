@@ -30,11 +30,6 @@ public partial class Diario : UserControl
         Notas.ItemsSource = notas;
     }
 
-    public void VolverAtras()
-    {
-        MainViewModel.Instancia.AbirNuevaNotaCommand.Execute(null);
-    }
-
     public void EnClicNuevaNota(object sender, RoutedEventArgs args)
     {
         MainViewModel.Instancia.AbirNuevaNotaCommand.Execute(sender);

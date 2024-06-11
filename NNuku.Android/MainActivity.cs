@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Avalonia;
 using Avalonia.Android;
 using NNuku.ViewModels;
+using static NNuku.Constantes;
 
 namespace NNuku.Android;
 
@@ -22,7 +23,15 @@ public class MainActivity : AvaloniaMainActivity<App>
 
     public override void OnBackPressed()
     {
-        MainViewModel.Instancia.EnClicAtrasCommand.Execute(null);
-        base.OnBackPressed();
+        switch (MainViewModel.Instancia.Actual)
+        {
+            case Páginas.nuevaNota:
+                MainViewModel.Instancia.GuardarCommand.Execute(null);
+                base.OnBackPressed();
+                break;
+            case Páginas.diario:
+                MainViewModel.Instancia.EnClicNotaCommand.Execute(null);
+                break;
+        }
     }
 }

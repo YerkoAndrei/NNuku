@@ -13,12 +13,17 @@ public partial class NuevaNota : UserControl
     public NuevaNota()
     {
         InitializeComponent();
-
-        Fecha.Text = FormatearFechaLarga(DateTime.Now);
-        fecha = FormatearFechaEstándar(DateTime.Now);
+        EstablecerFecha();
     }
 
-    private void CrearNota()
+    public void EstablecerFecha()
+    {
+        Fecha.Text = FormatearFechaLarga(DateTime.Now);
+        fecha = FormatearFechaEstándar(DateTime.Now);
+        Nota.SelectAll();
+    }
+
+    public void CrearNota()
     {
         if (string.IsNullOrEmpty(Nota.Text))
             return;
@@ -38,13 +43,12 @@ public partial class NuevaNota : UserControl
     public void VolverAtras()
     {
         CrearNota();
-        MainViewModel.Instancia.CerrarCommand.Execute(null);
     }
 
-    public void EnClicGuardarYSalir(object sender, RoutedEventArgs args)
+    public void EnClicGuardar(object sender, RoutedEventArgs args)
     {
         CrearNota();
-        MainViewModel.Instancia.CerrarCommand.Execute(sender);
+        EstablecerFecha();
     }
 
     public void EnClicNotas(object sender, RoutedEventArgs args)

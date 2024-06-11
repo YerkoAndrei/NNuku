@@ -11,7 +11,9 @@ namespace NNuku.ViewModels;
 public partial class MainViewModel : ViewModelBase
 {
     public static MainViewModel Instancia;
-    private static Páginas Actual;
+
+    [ObservableProperty]
+    private Páginas actual;
 
     [ObservableProperty]
     private UserControl vista;
@@ -37,25 +39,14 @@ public partial class MainViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void Cerrar()
+    private void Guardar()
     {
-        // Pruebas en escritorio
-        var escritorio = (Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime);
-        if (escritorio != null)
-            escritorio.MainWindow?.Close();
+        (Vista as NuevaNota)?.CrearNota();
     }
 
     [RelayCommand]
-    private void EnClicAtras()
+    private void EnClicNota()
     {
-        switch (Actual)
-        {
-            case Páginas.nuevaNota:
-                (Vista as NuevaNota)?.VolverAtras();
-                break;
-            case Páginas.diario:
-                (Vista as Diario)?.VolverAtras();
-                break;
-        }
+        AbirNuevaNota();
     }
 }
