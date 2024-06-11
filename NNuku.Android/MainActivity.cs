@@ -1,11 +1,15 @@
-﻿using Android.App;
+﻿using System.IO;
+using System.Linq;
+using Android.App;
+using Android.OS;
 using Android.Content.PM;
+using Android.Widget;
 using Avalonia;
 using Avalonia.Android;
-using NNuku.ViewModels;
-using static NNuku.Constantes;
 
 namespace NNuku.Android;
+using NNuku.ViewModels;
+using static NNuku.Constantes;
 
 [Activity(
     Label = "NNuku.Android",
@@ -17,6 +21,12 @@ public class MainActivity : AvaloniaMainActivity<App>
 {
     protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
     {
+        MostrarGuardar = MostrarMensajeGuardar;
+        MostrarBorrar = MostrarMensajeBorrar;
+        MostrarError = MostrarMensajeError;
+
+        Exportar = ExportarDiario;
+
         return base.CustomizeAppBuilder(builder)
             .WithInterFont();
     }
@@ -32,6 +42,58 @@ public class MainActivity : AvaloniaMainActivity<App>
             case Páginas.diario:
                 MainViewModel.Instancia.EnClicNotaCommand.Execute(null);
                 break;
+        }
+    }
+
+    public void MostrarMensajeGuardar()
+    {
+        var notificación = Toast.MakeText(this, "Guardada", ToastLength.Short);
+        notificación?.Show();
+    }
+
+    public void MostrarMensajeBorrar()
+    {
+        var notificación = Toast.MakeText(this, "Borrado", ToastLength.Short);
+        notificación?.Show();
+    }
+
+    public void MostrarMensajeError()
+    {
+        var notificación = Toast.MakeText(this, "Error", ToastLength.Short);
+        notificación?.Show();
+    }
+
+    public void ExportarDiario()
+    {
+        // Formato simple
+        var formateado = string.Empty;
+        var notas = CargarNotas();
+        notas = notas.OrderBy(o => o.Fecha).ToList();
+
+        foreach (var nota in notas)
+        {
+            formateado += FormatearFechaCorta(nota.Fecha) + ": " + nota.Texto;
+            formateado += System.Environment.NewLine;
+        }
+
+        try
+        {
+            // Exportar a archivo .txt
+            var java = Environment.GetExternalStoragePublicDirectory(Environment.DirectoryDocuments);
+
+            var documentos = string.Empty;
+            if (java != null)
+                documentos = java.ToString();
+
+            var archivo = Path.Combine(documentos, "diario.txt");
+            File.WriteAllText(archivo, formateado);
+
+            var notificación = Toast.MakeText(this, "Exportado: " + documentos, ToastLength.Long);
+            notificación?.Show();
+        }
+        catch
+        {
+            MostrarMensajeError();
         }
     }
 }

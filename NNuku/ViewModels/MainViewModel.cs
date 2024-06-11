@@ -1,10 +1,10 @@
 ﻿using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using NNuku.Views;
-using static NNuku.Constantes;
 
 namespace NNuku.ViewModels;
+using NNuku.Views;
+using static NNuku.Constantes;
 
 public partial class MainViewModel : ViewModelBase
 {

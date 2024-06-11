@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using NNuku.ViewModels;
 
 namespace NNuku.Views;
+using NNuku.ViewModels;
 using static Constantes;
 
 public partial class NuevaNota : UserControl
@@ -32,12 +32,7 @@ public partial class NuevaNota : UserControl
 
         // Guarda nota
         if (GuardarNota(nuevaNota))
-        {
-            MostrarPositivo();
             Nota.Text = string.Empty;
-        }
-        else
-            MostrarNegativo();
     }
 
     public void VolverAtras()
@@ -54,6 +49,6 @@ public partial class NuevaNota : UserControl
     public void EnClicNotas(object sender, RoutedEventArgs args)
     {
         CrearNota();
-        MainViewModel.Instancia.AbirDiarioCommand.Execute(sender);
+        MainViewModel.Instancia?.AbirDiarioCommand.Execute(sender);
     }
 }

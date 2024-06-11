@@ -1,9 +1,9 @@
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using NNuku.ViewModels;
 
 namespace NNuku.Views;
+using NNuku.ViewModels;
 using static Constantes;
 
 public partial class Diario : UserControl
@@ -32,7 +32,7 @@ public partial class Diario : UserControl
 
     public void EnClicNuevaNota(object sender, RoutedEventArgs args)
     {
-        MainViewModel.Instancia.AbirNuevaNotaCommand.Execute(sender);
+        MainViewModel.Instancia?.AbirNuevaNotaCommand.Execute(sender);
     }
 
     public void EnClicNota(object sender, SelectionChangedEventArgs args)
@@ -48,17 +48,14 @@ public partial class Diario : UserControl
         Notas.SelectedIndex = -1;
     }
 
-    public void EnClicSÌBorrar(object sender, RoutedEventArgs args)
+    public async void EnClicSÌBorrar(object sender, RoutedEventArgs args)
     {
-        if (BorrarNota(notaBorrar))
-        {
-            MostrarPositivo();
-            CargarDiario();
-        }
-        else
-            MostrarNegativo();
-
+        BorrarNota(notaBorrar);
         PopupBorrar.IsVisible = false;
+
+        // PequeÒa espera
+        await System.Threading.Tasks.Task.Delay(100);
+        CargarDiario();
     }
 
     public void EnClicNoBorrar(object sender, RoutedEventArgs args)
@@ -68,9 +65,6 @@ public partial class Diario : UserControl
 
     public void EnClicExportar(object sender, RoutedEventArgs args)
     {
-        if (ExportarNotas())
-            MostrarPositivo();
-        else
-            MostrarNegativo();
+        Exportar?.Invoke();
     }
 }
