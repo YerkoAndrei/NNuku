@@ -12,7 +12,7 @@ using NNuku.ViewModels;
 using static NNuku.Constantes;
 
 [Activity(
-    Label = "NNuku.Android",
+    Label = "Ñuku",
     Theme = "@style/MyTheme.NoActionBar",
     Icon = "@drawable/icon",
     MainLauncher = true,
@@ -49,18 +49,21 @@ public class MainActivity : AvaloniaMainActivity<App>
     {
         var notificación = Toast.MakeText(this, "Guardada", ToastLength.Short);
         notificación?.Show();
+        Vibrar(200);
     }
 
     public void MostrarMensajeBorrar()
     {
         var notificación = Toast.MakeText(this, "Borrado", ToastLength.Short);
         notificación?.Show();
+        Vibrar(200);
     }
 
     public void MostrarMensajeError()
     {
         var notificación = Toast.MakeText(this, "Error", ToastLength.Short);
         notificación?.Show();
+        Vibrar(600);
     }
 
     public void ExportarDiario()
@@ -90,6 +93,7 @@ public class MainActivity : AvaloniaMainActivity<App>
 
             var notificación = Toast.MakeText(this, "Exportado: " + documentos, ToastLength.Long);
             notificación?.Show();
+            Vibrar(200);
         }
         catch
         {
@@ -100,20 +104,19 @@ public class MainActivity : AvaloniaMainActivity<App>
 #pragma warning disable CA1422
 #pragma warning disable CA1416
     // Advertencias que se resuelven con el if else
-    // No funciona
-    public void Vibrar()
+    public void Vibrar(int duración)
     {
         if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
         {
             var vibrador = GetSystemService(VibratorManagerService) as VibratorManager;
             if (vibrador != null && vibrador.DefaultVibrator.HasVibrator)
-                vibrador.DefaultVibrator.Vibrate(200);
+                vibrador.DefaultVibrator.Vibrate(duración);
         }
         else if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
         {
             var vibrador = Vibrator.FromContext(this);
             if (vibrador != null && vibrador.HasVibrator)
-                vibrador.Vibrate(200);
+                vibrador.Vibrate(duración);
         }
     }
 #pragma warning restore CA1422
