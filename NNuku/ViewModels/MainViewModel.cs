@@ -1,6 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
+﻿using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using NNuku.Views;
@@ -10,7 +8,7 @@ namespace NNuku.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
-    public static MainViewModel Instancia;
+    public static MainViewModel? Instancia;
 
     [ObservableProperty]
     private Páginas actual;

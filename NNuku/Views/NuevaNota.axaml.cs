@@ -8,7 +8,7 @@ using static Constantes;
 
 public partial class NuevaNota : UserControl
 {
-    private string fecha;
+    private string fecha = string.Empty;
 
     public NuevaNota()
     {

@@ -23,7 +23,7 @@ public class MainActivity : AvaloniaMainActivity<App>
 
     public override void OnBackPressed()
     {
-        switch (MainViewModel.Instancia.Actual)
+        switch (MainViewModel.Instancia?.Actual)
         {
             case Páginas.nuevaNota:
                 MainViewModel.Instancia.GuardarCommand.Execute(null);

@@ -8,7 +8,7 @@ using static Constantes;
 
 public partial class Diario : UserControl
 {
-    private Nota notaBorrar;
+    private Nota notaBorrar = new Nota(string.Empty, string.Empty);
 
     public Diario()
     {
