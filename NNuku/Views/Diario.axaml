@@ -6,22 +6,35 @@
              x:Class="NNuku.Views.Diario">
 
   <!-- Página -->
-  <Grid ShowGridLines="True" RowDefinitions="40, *">
+  <Grid RowDefinitions="50, *">
 
     <!-- Botones -->
     <Grid Grid.Row="0">
+      
+      <Border BorderBrush="AntiqueWhite"
+              BorderThickness="1"
+              Margin="-2"/>
+      
       <Button Click="EnClicNuevaNota"
-              HorizontalAlignment="Left"
+              Margin="5, 0, 0, 0"
+              Width="160"
+              Height="40"
               CornerRadius="10"
-              Width="140">
+              HorizontalAlignment="Left">
         <TextBlock Text="Nueva nota"
+                   FontSize="18"
+                   VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
-      </Button>      
+      </Button>
       <Button Click="EnClicExportar"
-              HorizontalAlignment="Right"
+              Margin="0, 0, 5, 0"
+              Width="160"
+              Height="40"
               CornerRadius="10"
-              Width="140">
+              HorizontalAlignment="Right">
         <TextBlock Text="Exportar"
+                   FontSize="18"
+                   VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
       </Button>
     </Grid>
@@ -36,11 +49,13 @@
             <Grid RowDefinitions="20, *" Margin="5, 5, 5, 10">
               <TextBlock Grid.Row="0"
                          Text="{Binding Fecha}"
+                         FontSize="16"
                          FontWeight="Bold"
                          Foreground="AntiqueWhite"
                          HorizontalAlignment="Left"/>
               <TextBlock Grid.Row="1"
                          Text="{Binding Texto}"
+                         FontSize="16"
                          TextWrapping="Wrap"
                          HorizontalAlignment="Left"/>
             </Grid>
@@ -67,13 +82,13 @@
       
       <TextBlock Grid.Row="0" Margin="5, 5, 5, 15"
                  Text="¿Desea borrar la nota?"
-                 FontSize="16"
+                 FontSize="18"
                  HorizontalAlignment="Center"/>
       
       <TextBlock Grid.Row="1" Margin="5, 5, 5, 15"
                  Name="FechaBorrar"
                  Text="00/00/0000 00:00:00"
-                 FontSize="16"
+                 FontSize="18"
                  Foreground="AntiqueWhite"
                  HorizontalAlignment="Center"/>
 

@@ -6,30 +6,42 @@
              x:Class="NNuku.Views.NuevaNota">
 
   <!-- Página -->
-  <Grid ShowGridLines="True" RowDefinitions="40, 40, *">
-
+  <Grid RowDefinitions="50, 50, *">
+    
     <!-- Botones -->
     <Grid Grid.Row="0">
       <Button Click="EnClicNotas"
-              HorizontalAlignment="Left"
+              Margin="5, 0, 0, 0"
+              Width="160"
+              Height="40"
               CornerRadius="10"
-              Width="140">
+              HorizontalAlignment="Left">
         <TextBlock Text="Notas"
+                   FontSize="18"
+                   VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
       </Button>
-      <Button Click="EnClicGuardarYSalir"
-              HorizontalAlignment="Right"
+      <Button Click="EnClicGuardar"
+              Margin="0, 0, 5, 0"
+              Width="160"
+              Height="40"
               CornerRadius="10"
-              Width="140">
-        <TextBlock Text="Guardar y salir"
+              HorizontalAlignment="Right">
+        <TextBlock Text="Guardar"
+                   FontSize="18"
+                   VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
       </Button>
     </Grid>
 
     <!-- Fecha -->
     <Grid Grid.Row="1">
+      <Border BorderBrush="AntiqueWhite"
+              BorderThickness="1"
+              Margin="-2"/>
+      
       <TextBlock Name="Fecha"
-                 FontSize="18"
+                 FontSize="20"
                  Foreground="AntiqueWhite"
                  Text="día dd/MM/yyyy  hh:mm:ss"
                  HorizontalAlignment="Center"
