@@ -96,7 +96,7 @@
         <Button Click="EnClicNoBorrar"
                 HorizontalAlignment="Left"
                 CornerRadius="10"
-                Width="100">
+                Width="120">
           <TextBlock Text="No"
                      FontSize="20"
                      HorizontalAlignment="Center"
@@ -105,7 +105,7 @@
         <Button Click="EnClicSíBorrar"
                 HorizontalAlignment="Right"
                 CornerRadius="10"
-                Width="100">
+                Width="120">
           <TextBlock Text="Sí"
                      FontSize="20"
                      HorizontalAlignment="Center"

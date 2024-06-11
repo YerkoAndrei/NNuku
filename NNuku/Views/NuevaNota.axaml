@@ -10,6 +10,11 @@
     
     <!-- Botones -->
     <Grid Grid.Row="0">
+
+      <Border BorderBrush="AntiqueWhite"
+              BorderThickness="1"
+              Margin="-2"/>
+      
       <Button Click="EnClicNotas"
               Margin="5, 0, 0, 0"
               Width="160"
@@ -35,11 +40,7 @@
     </Grid>
 
     <!-- Fecha -->
-    <Grid Grid.Row="1">
-      <Border BorderBrush="AntiqueWhite"
-              BorderThickness="1"
-              Margin="-2"/>
-      
+    <Grid Grid.Row="1">      
       <TextBlock Name="Fecha"
                  FontSize="20"
                  Foreground="AntiqueWhite"
