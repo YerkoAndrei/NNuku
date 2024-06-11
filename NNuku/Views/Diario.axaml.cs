@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
@@ -54,7 +55,7 @@ public partial class Diario : UserControl
         PopupBorrar.IsVisible = false;
 
         // Pequeña espera
-        await System.Threading.Tasks.Task.Delay(100);
+        await Task.Delay(100);
         CargarDiario();
     }
 

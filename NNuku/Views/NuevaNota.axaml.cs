@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
@@ -14,13 +15,20 @@ public partial class NuevaNota : UserControl
     {
         InitializeComponent();
         EstablecerFecha();
+
+        Loaded += AlCargar;
     }
 
-    public void EstablecerFecha()
+    private async void AlCargar(object? sender, RoutedEventArgs arg)
+    {
+        await Task.Delay(100);
+        Nota.Focus();
+    }
+
+    private void EstablecerFecha()
     {
         Fecha.Text = FormatearFechaLarga(DateTime.Now);
         fecha = FormatearFechaEstándar(DateTime.Now);
-        Nota.SelectAll();
     }
 
     public void CrearNota()
@@ -28,9 +36,8 @@ public partial class NuevaNota : UserControl
         if (string.IsNullOrEmpty(Nota.Text))
             return;
 
-        var nuevaNota = new Nota(fecha, Nota.Text);
-
         // Guarda nota
+        var nuevaNota = new Nota(fecha, Nota.Text);
         if (GuardarNota(nuevaNota))
             Nota.Text = string.Empty;
     }
