@@ -9,6 +9,8 @@ Código Abierto.
 ## Descargar
 <a href="https://play.google.com/store/apps/details?id=com.YerkoAndrei.NNuku">Google play</a>
 
+<a href="https://github.com/YerkoAndrei/NNuku/releases/download/Estable/com.YerkoAndrei.NNuku.apk">APK</a>
+
 Versión: 1.0
 
 ## Contacto
