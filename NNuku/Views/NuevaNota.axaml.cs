@@ -28,7 +28,7 @@ public partial class NuevaNota : UserControl
     private void EstablecerFecha()
     {
         Fecha.Text = FormatearFechaLarga(DateTime.Now);
-        fecha = FormatearFechaEst·ndar(DateTime.Now);
+        fecha = FormatearFechaEst√°ndar(DateTime.Now);
     }
 
     public void CrearNota()

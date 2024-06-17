@@ -49,12 +49,12 @@ public partial class Diario : UserControl
         Notas.SelectedIndex = -1;
     }
 
-    public async void EnClicSÌBorrar(object sender, RoutedEventArgs args)
+    public async void EnClicS√≠Borrar(object sender, RoutedEventArgs args)
     {
         BorrarNota(notaBorrar);
         PopupBorrar.IsVisible = false;
 
-        // PequeÒa espera
+        // Peque√±a espera
         await Task.Delay(100);
         CargarDiario();
     }
