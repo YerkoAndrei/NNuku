@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Globalization;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace NNuku;
 
@@ -40,7 +40,7 @@ public static class Constantes
         try
         {
             // Sobreescribe diario
-            var json = JsonConvert.SerializeObject(notas);
+            var json = JsonSerializer.Serialize(notas);
             File.WriteAllText(archivoDiario, json);
 
             MostrarGuardar?.Invoke();
@@ -65,7 +65,7 @@ public static class Constantes
         {
             // Notas guardadas
             var json = File.ReadAllText(archivoDiario);
-            var array = JsonConvert.DeserializeObject<Nota[]>(json);
+            var array = JsonSerializer.Deserialize<Nota[]>(json);
 
             if(array != null)
                 return array.ToList();
@@ -93,7 +93,7 @@ public static class Constantes
         {
             // Notas guardadas
             var json = File.ReadAllText(archivoDiario);
-            var arreglo = JsonConvert.DeserializeObject<Nota[]>(json);
+            var arreglo = JsonSerializer.Deserialize<Nota[]>(json);
 
             var lista = new List<Nota>();
             if (arreglo != null)
@@ -110,7 +110,7 @@ public static class Constantes
             }
 
             // Sobreescribe diario
-            var jsonNuevo = JsonConvert.SerializeObject(lista);
+            var jsonNuevo = JsonSerializer.Serialize(lista);
             File.WriteAllText(archivoDiario, jsonNuevo);
             MostrarBorrar?.Invoke();
         }
