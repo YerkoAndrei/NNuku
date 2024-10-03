@@ -16,6 +16,4 @@ Versión: 1.0
 ## Contacto
 Yerko Andrei Orellana Abello
 
-Linkedin: https://www.linkedin.com/in/yerkoandrei
-
 Correo:  yerkoandrei@gmail.com
