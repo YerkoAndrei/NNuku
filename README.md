@@ -11,8 +11,6 @@ Código Abierto.
 
 <a href="https://github.com/YerkoAndrei/NNuku/releases/download/Estable/com.YerkoAndrei.NNuku.apk">APK</a>
 
-Versión: 1.0
-
 ## Contacto
 Yerko Andrei Orellana Abello
 
