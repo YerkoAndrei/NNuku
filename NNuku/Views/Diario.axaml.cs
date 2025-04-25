@@ -9,7 +9,7 @@ using static Constantes;
 
 public partial class Diario : UserControl
 {
-    private Nota notaBorrar = new Nota(string.Empty, string.Empty);
+    private Nota notaActual = new Nota(string.Empty, string.Empty);
 
     public Diario()
     {
@@ -43,25 +43,38 @@ public partial class Diario : UserControl
             return;
 
         // Abre popup
-        notaBorrar = nota;
-        FechaBorrar.Text = nota.Fecha;
-        PopupBorrar.IsVisible = true;
+        notaActual = nota;
+        FechaNota.Text = nota.Fecha;
+
+        // Adelanto
+        if (nota.Texto.Length <= 20)
+            TextoCortoNota.Text = nota.Texto;
+        else if (nota.Texto.Length > 20)
+            TextoCortoNota.Text = nota.Texto.Substring(0, 20) + " …";
+
+        PopupNota.IsVisible = true;
         Notas.SelectedIndex = -1;
     }
 
-    public async void EnClicSíBorrar(object sender, RoutedEventArgs args)
+    public async void EnClicBorrar(object sender, RoutedEventArgs args)
     {
-        BorrarNota(notaBorrar);
-        PopupBorrar.IsVisible = false;
+        BorrarNota(notaActual);
+        PopupNota.IsVisible = false;
 
         // Pequeña espera
         await Task.Delay(100);
         CargarDiario();
     }
 
-    public void EnClicNoBorrar(object sender, RoutedEventArgs args)
+    public async void EnClicEditar(object sender, RoutedEventArgs args)
     {
-        PopupBorrar.IsVisible = false;
+        // PENDIENTE: Abrir otra pantalla igual a nota nueva
+        await Task.Delay(100);
+    }
+
+    public void EnClicCancelar(object sender, RoutedEventArgs args)
+    {
+        PopupNota.IsVisible = false;
     }
 
     public void EnClicExportar(object sender, RoutedEventArgs args)

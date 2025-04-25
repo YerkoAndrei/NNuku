@@ -64,49 +64,65 @@
       </ListBox >
     </Grid>
     
-    <!-- Popup borrar -->
+    <!-- Popup Nota -->
     <Grid Grid.Row="1"
-          Name="PopupBorrar"
+          Name="PopupNota"
           IsVisible="False"
           Width="350"
-          RowDefinitions="*, *, *"
+          RowDefinitions="*, *, *, *"
           VerticalAlignment="Center"
           HorizontalAlignment="Center">
       
-      <Border Grid.RowSpan="3"
+      <Border Background="Transparent"
+              Margin="-200, -400, -200, -400"/>
+
+      <Border Grid.RowSpan="4"
               Background="#3C0000"
               BorderBrush="Black"
               BorderThickness="2"
               CornerRadius="20" 
               Margin="-4"/>
       
-      <TextBlock Grid.Row="0" Margin="5, 5, 5, 15"
-                 Text="¿Desea borrar la nota?"
-                 FontSize="18"
-                 HorizontalAlignment="Center"/>
-      
-      <TextBlock Grid.Row="1" Margin="5, 5, 5, 15"
-                 Name="FechaBorrar"
-                 Text="00/00/0000 00:00:00"
+      <TextBlock Grid.Row="0" Margin="5, 5, 5, 5"
+                 Name="FechaNota"
                  FontSize="18"
                  Foreground="AntiqueWhite"
                  HorizontalAlignment="Center"/>
+      
+      <TextBlock Grid.Row="1" Margin="5, 10, 5, 10"
+                 Name="TextoCortoNota"
+                 Text="00/00/0000 00:00:00"
+                 FontSize="18"
+                 HorizontalAlignment="Center"/>
 
-      <Grid Grid.Row="2" Margin="5, 5, 5, 5">
-        <Button Click="EnClicNoBorrar"
+      <Grid Grid.Row="2" Margin="10, 5, 10, 5">
+        <Button Click="EnClicEditar"
                 HorizontalAlignment="Left"
                 CornerRadius="10"
-                Width="120">
-          <TextBlock Text="No"
+                Width="140"
+                Grid.Row="0">
+          <TextBlock Text="Editar"
                      FontSize="20"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Bottom"/>
         </Button>
-        <Button Click="EnClicSíBorrar"
+        <Button Click="EnClicBorrar"
                 HorizontalAlignment="Right"
                 CornerRadius="10"
-                Width="120">
-          <TextBlock Text="Sí"
+                Width="140">
+          <TextBlock Text="Borrar"
+                     FontSize="20"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Bottom"/>
+        </Button>
+      </Grid>
+
+      <Grid Grid.Row="3" Margin="10, 10, 10, 10" RowSpan="2">
+        <Button Click="EnClicCancelar"
+                HorizontalAlignment="Center"
+                CornerRadius="10"
+                Width="330">
+          <TextBlock Text="Cancelar"
                      FontSize="20"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Bottom"/>
@@ -114,5 +130,4 @@
       </Grid>
     </Grid>
   </Grid>
-  
 </UserControl>
