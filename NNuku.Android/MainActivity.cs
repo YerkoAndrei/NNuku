@@ -88,7 +88,7 @@ public class MainActivity : AvaloniaMainActivity<App>
             if (java != null)
                 documentos = java.ToString();
 
-            var archivo = Path.Combine(documentos, "diario.txt");
+            var archivo = Path.Combine(documentos, "diario_" + DateTime.Now.ToFileTime() + ".txt");
             File.WriteAllText(archivo, formateado);
 
             var notificación = Toast.MakeText(this, "Exportado: " + documentos, ToastLength.Long);
