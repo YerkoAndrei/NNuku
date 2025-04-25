@@ -68,7 +68,8 @@ public partial class Diario : UserControl
 
     public async void EnClicEditar(object sender, RoutedEventArgs args)
     {
-        // PENDIENTE: Abrir otra pantalla igual a nota nueva
+        NotaEditando = notaActual;
+        MainViewModel.Instancia?.AbirEditarCommand.Execute(sender);
         await Task.Delay(100);
     }
 

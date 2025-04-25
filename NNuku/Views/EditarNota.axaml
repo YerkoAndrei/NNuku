@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
+             x:Class="NNuku.Views.EditarNota">
+
+  <!-- Página -->
+  <Grid RowDefinitions="55, 55, *">
+    
+    <!-- Botones -->
+    <Grid Grid.Row="0">
+
+      <Border BorderBrush="AntiqueWhite"
+              BorderThickness="1"
+              Margin="-2"/>
+      
+      <Button Click="EnClicNotas"
+              Margin="5, 0, 0, 0"
+              Width="160"
+              Height="45"
+              CornerRadius="10"
+              HorizontalAlignment="Left">
+        <TextBlock Text="Notas"
+                   FontSize="18"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+      </Button>
+      <Button Click="EnClicEditar"
+              Margin="0, 0, 5, 0"
+              Width="160"
+              Height="45"
+              CornerRadius="10"
+              HorizontalAlignment="Right">
+        <TextBlock Text="Editar"
+                   FontSize="18"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+      </Button>
+    </Grid>
+
+    <!-- Fecha -->
+    <Grid Grid.Row="1">      
+      <TextBlock Name="Fecha"
+                 FontSize="20"
+                 Foreground="AntiqueWhite"
+                 Text="día dd/MM/yyyy  hh:mm:ss"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"/>
+    </Grid>
+
+    <!-- Texto nota -->
+    <Grid Grid.Row="2">
+      <TextBox Name="Nota"
+               FontSize="16"
+               Watermark="Nueva nota"
+               Background="Transparent"
+               TextWrapping="Wrap"
+               Padding="10, 10, 10, 10"
+               HorizontalAlignment="Stretch">
+      </TextBox>
+    </Grid>
+  </Grid>
+</UserControl>

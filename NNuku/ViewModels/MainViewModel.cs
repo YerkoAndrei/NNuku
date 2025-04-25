@@ -37,6 +37,13 @@ public partial class MainViewModel : ViewModelBase
     }
 
     [RelayCommand]
+    private void AbirEditar()
+    {
+        Vista = new EditarNota();
+        Actual = Páginas.editar;
+    }
+
+    [RelayCommand]
     private void Guardar()
     {
         (Vista as NuevaNota)?.CrearNota();

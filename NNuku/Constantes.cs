@@ -19,10 +19,13 @@ public static class Constantes
     public static Action? MostrarBorrar;
     public static Action? MostrarError;
 
+    public static Nota NotaEditando = new Nota(string.Empty, string.Empty);
+
     public enum Páginas
     {
         nuevaNota,
         diario,
+        editar
     }
 
     public static bool GuardarNota(Nota nota)
@@ -53,6 +56,43 @@ public static class Constantes
         }
     }
 
+    public static bool ActualizarNota(Nota nota)
+    {
+        var carpetaDiario = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), nombreCarpeta);
+        var archivoDiario = Path.Combine(carpetaDiario, archivoNotas);
+
+        if (!Directory.Exists(carpetaDiario))
+            Directory.CreateDirectory(carpetaDiario);
+
+        var notas = CargarNotas();
+        var nuevaNota = notas.Where(o => o.Fecha == nota.Fecha).FirstOrDefault();
+
+        if (string.IsNullOrEmpty(nota.Texto) || nuevaNota == null)
+        {
+            MostrarError?.Invoke();
+            return false;
+        }
+
+        try
+        {
+            // Reemplaza texto
+            nuevaNota.Texto = nota.Texto;
+
+            // Sobreescribe diario
+            var json = JsonSerializer.Serialize(notas);
+            File.WriteAllText(archivoDiario, json);
+
+            NotaEditando = new Nota(string.Empty, string.Empty);
+            MostrarGuardar?.Invoke();
+            return true;
+        }
+        catch
+        {
+            MostrarError?.Invoke();
+            return false;
+        }
+    }
+
     public static List<Nota> CargarNotas()
     {
         var carpetaDiario = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), nombreCarpeta);
@@ -67,7 +107,7 @@ public static class Constantes
             var json = File.ReadAllText(archivoDiario);
             var array = JsonSerializer.Deserialize<Nota[]>(json);
 
-            if(array != null)
+            if (array != null)
                 return array.ToList();
             else
                 return new List<Nota>();
