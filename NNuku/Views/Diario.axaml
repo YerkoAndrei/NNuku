@@ -39,7 +39,7 @@
       </Button>
     </Grid>
 
-    <!-- Nota -->
+    <!-- Notas -->
     <Grid Grid.Row="1">
       <ListBox Name="Notas"
                SelectionChanged="EnClicNota"
@@ -64,18 +64,22 @@
       </ListBox >
     </Grid>
     
+    <!-- Bloqueador del Popup -->
+    <Grid Grid.Row="1"
+          Name="Bloqueador"
+          IsVisible="False">
+      <Border Background="Transparent"/>
+    </Grid>
+
     <!-- Popup Nota -->
     <Grid Grid.Row="1"
           Name="PopupNota"
-          IsVisible="False"
-          Width="350"
+          IsVisible="True"
+          Width="360"
           RowDefinitions="*, *, *, *"
           VerticalAlignment="Center"
           HorizontalAlignment="Center">
       
-      <Border Background="Transparent"
-              Margin="-200, -400, -200, -400"/>
-
       <Border Grid.RowSpan="4"
               Background="#3C0000"
               BorderBrush="Black"
@@ -85,13 +89,14 @@
       
       <TextBlock Grid.Row="0" Margin="5, 5, 5, 5"
                  Name="FechaNota"
+                 Text="00/00/0000 00:00:00"
                  FontSize="18"
                  Foreground="AntiqueWhite"
                  HorizontalAlignment="Center"/>
       
       <TextBlock Grid.Row="1" Margin="5, 10, 5, 10"
                  Name="TextoCortoNota"
-                 Text="00/00/0000 00:00:00"
+                 Text="Lorem ipsum dolor sit"
                  FontSize="18"
                  HorizontalAlignment="Center"/>
 
@@ -121,7 +126,7 @@
         <Button Click="EnClicCancelar"
                 HorizontalAlignment="Center"
                 CornerRadius="10"
-                Width="330">
+                Width="340">
           <TextBlock Text="Cancelar"
                      FontSize="20"
                      HorizontalAlignment="Center"

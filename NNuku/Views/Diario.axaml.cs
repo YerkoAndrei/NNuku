@@ -53,6 +53,7 @@ public partial class Diario : UserControl
             TextoCortoNota.Text = nota.Texto.Substring(0, 20) + " …";
 
         PopupNota.IsVisible = true;
+        Bloqueador.IsVisible = true;
         Notas.SelectedIndex = -1;
     }
 
@@ -60,26 +61,30 @@ public partial class Diario : UserControl
     {
         BorrarNota(notaActual);
         PopupNota.IsVisible = false;
+        Bloqueador.IsVisible = false;
 
         // Pequeña espera
         await Task.Delay(100);
         CargarDiario();
     }
 
-    public async void EnClicEditar(object sender, RoutedEventArgs args)
+    public void EnClicEditar(object sender, RoutedEventArgs args)
     {
         NotaEditando = notaActual;
         MainViewModel.Instancia?.AbirEditarCommand.Execute(sender);
-        await Task.Delay(100);
     }
 
     public void EnClicCancelar(object sender, RoutedEventArgs args)
     {
         PopupNota.IsVisible = false;
+        Bloqueador.IsVisible = false;
     }
 
     public void EnClicExportar(object sender, RoutedEventArgs args)
     {
+        PopupNota.IsVisible = false;
+        Bloqueador.IsVisible = false;
+
         Exportar?.Invoke();
     }
 }
