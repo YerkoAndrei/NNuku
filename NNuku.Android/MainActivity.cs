@@ -23,6 +23,7 @@ public class MainActivity : AvaloniaMainActivity<App>
     {
         MostrarGuardar = MostrarMensajeGuardar;
         MostrarBorrar = MostrarMensajeBorrar;
+        MostrarEditar = MostrarMensajeEditar;
         MostrarError = MostrarMensajeError;
 
         Exportar = ExportarDiario;
@@ -58,6 +59,13 @@ public class MainActivity : AvaloniaMainActivity<App>
     public void MostrarMensajeBorrar()
     {
         var notificación = Toast.MakeText(this, "Borrado", ToastLength.Short);
+        notificación?.Show();
+        Vibrar(200);
+    }
+
+    public void MostrarMensajeEditar()
+    {
+        var notificación = Toast.MakeText(this, "Editado", ToastLength.Short);
         notificación?.Show();
         Vibrar(200);
     }
