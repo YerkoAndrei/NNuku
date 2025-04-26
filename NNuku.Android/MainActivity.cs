@@ -44,7 +44,7 @@ public class MainActivity : AvaloniaMainActivity<App>
                 MainViewModel.Instancia.EnClicNotaCommand.Execute(null);
                 break;
             case Páginas.editar:
-                MainViewModel.Instancia.EnClicEditarCommand.Execute(null);
+                MainViewModel.Instancia.AbirEditarCommand.Execute(null);
                 break;
         }
     }
@@ -99,7 +99,7 @@ public class MainActivity : AvaloniaMainActivity<App>
             if (java != null)
                 documentos = java.ToString();
 
-            var archivo = Path.Combine(documentos, "diario_" + DateTime.Now.ToFileTime() + ".txt");
+            var archivo = Path.Combine(documentos, "diario_" + System.DateTime.Now.ToFileTime() + ".txt");
             File.WriteAllText(archivo, formateado);
 
             var notificación = Toast.MakeText(this, "Exportado: " + documentos, ToastLength.Long);

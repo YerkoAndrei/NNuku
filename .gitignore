@@ -27,9 +27,5 @@ Thumbs.db
 # Krita
 *.png~
 
-# Android
-c:workandroid-sdk
-c:workjdk
-
 # appsetings
 */appsettings.json*
