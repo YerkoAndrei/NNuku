@@ -13,10 +13,12 @@ public static class Constantes
 
     private static string archivoNotas = "diario.ñuku";
     private static string nombreCarpeta = "Ñuku";
+    public static CultureInfo cultura = new CultureInfo("cl");
 
     public static Action? Exportar;
     public static Action? MostrarGuardar;
     public static Action? MostrarBorrar;
+    public static Action? MostrarEditar;
     public static Action? MostrarError;
 
     public static Nota NotaEditando = new Nota(string.Empty, string.Empty);
@@ -83,7 +85,7 @@ public static class Constantes
             File.WriteAllText(archivoDiario, json);
 
             NotaEditando = new Nota(string.Empty, string.Empty);
-            MostrarGuardar?.Invoke();
+            MostrarEditar?.Invoke();
             return true;
         }
         catch
@@ -163,23 +165,23 @@ public static class Constantes
 
     public static string FormatearFechaLarga(DateTime fecha)
     {
-        var día = fecha.ToString("dddd", CultureInfo.CurrentCulture);
+        var día = fecha.ToString("dddd", cultura);
 
         var charArray = día.ToCharArray();
         charArray[0] = char.ToUpper(charArray[0]);
         día = new string(charArray);
 
-        var fechaHora = fecha.ToString("dd/MM/yyyy  hh:mm:ss", CultureInfo.CurrentCulture);
-        var tiempo = fecha.ToString("tt", CultureInfo.CurrentCulture).ToLower();
+        var fechaHora = fecha.ToString("dd/MM/yyyy  hh:mm:ss", cultura);
+        var tiempo = fecha.ToString("tt", cultura).ToLower();
 
         return día + "  " + fechaHora + " " + tiempo;
     }
 
     public static string FormatearFechaCorta(string fecha)
     {
-        var fechaDT = DateTime.Parse(fecha, new CultureInfo("cl"));
-        var fechaHora = fechaDT.ToString("dd/MM/yyyy  hh:mm:ss", CultureInfo.CurrentCulture);
-        var tiempo = fechaDT.ToString("tt", CultureInfo.CurrentCulture).ToLower();
+        var fechaDT = DateTime.Parse(fecha, cultura);
+        var fechaHora = fechaDT.ToString("dd/MM/yyyy  hh:mm:ss", cultura);
+        var tiempo = fechaDT.ToString("tt", cultura).ToLower();
 
         return fechaHora + " " + tiempo;
     }
@@ -192,8 +194,8 @@ public static class Constantes
 
     public static string FormatearFechaEstándar(string fecha)
     {
-        var fechaDT = DateTime.Parse(fecha, new CultureInfo("cl"));
-        var fechaHora = fechaDT.ToString(ISO8006, CultureInfo.CurrentCulture);
+        var fechaDT = DateTime.Parse(fecha, cultura);
+        var fechaHora = fechaDT.ToString(ISO8006, cultura);
         return fechaHora;
     }
 }
