@@ -74,7 +74,7 @@
     <!-- Popup Nota -->
     <Grid Grid.Row="1"
           Name="PopupNota"
-          IsVisible="True"
+          IsVisible="False"
           Width="360"
           RowDefinitions="*, *, *, *"
           VerticalAlignment="Center"
