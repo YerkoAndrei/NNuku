@@ -15,13 +15,13 @@
               BorderThickness="1"
               Margin="-2"/>
       
-      <Button Click="EnClicNotas"
+      <Button Click="EnClicCancelar"
               Margin="5, 0, 0, 0"
               Width="160"
               Height="45"
               CornerRadius="10"
               HorizontalAlignment="Left">
-        <TextBlock Text="Notas"
+        <TextBlock Text="Cancelar"
                    FontSize="18"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>

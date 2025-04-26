@@ -42,11 +42,6 @@ public partial class NuevaNota : UserControl
             Nota.Text = string.Empty;
     }
 
-    public void VolverAtras()
-    {
-        CrearNota();
-    }
-
     public void EnClicGuardar(object sender, RoutedEventArgs args)
     {
         CrearNota();

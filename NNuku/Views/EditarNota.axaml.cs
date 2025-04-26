@@ -37,15 +37,13 @@ public partial class EditarNota : UserControl
         if (string.IsNullOrEmpty(Nota.Text))
             return;
 
+        if (NotaEditando.Texto == Nota.Text)
+            return;
+
         // Guarda nota
         var nuevaNota = new Nota(fecha, Nota.Text);
         if (ActualizarNota(nuevaNota))
             Nota.Text = string.Empty;
-    }
-
-    public void VolverAtras()
-    {
-        SobreescribirNota();
     }
 
     public void EnClicEditar(object sender, RoutedEventArgs args)
@@ -54,9 +52,9 @@ public partial class EditarNota : UserControl
         MainViewModel.Instancia?.AbirDiarioCommand.Execute(sender);
     }
 
-    public void EnClicNotas(object sender, RoutedEventArgs args)
+    public void EnClicCancelar(object sender, RoutedEventArgs args)
     {
-        SobreescribirNota();
+        NotaEditando = new Nota(string.Empty, string.Empty);
         MainViewModel.Instancia?.AbirDiarioCommand.Execute(sender);
     }
 }

@@ -44,7 +44,7 @@ public class MainActivity : AvaloniaMainActivity<App>
                 MainViewModel.Instancia.EnClicNotaCommand.Execute(null);
                 break;
             case Páginas.editar:
-                MainViewModel.Instancia.AbirEditarCommand.Execute(null);
+                MainViewModel.Instancia.ActualizarNotaCommand.Execute(null);
                 break;
         }
     }

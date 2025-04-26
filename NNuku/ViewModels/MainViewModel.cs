@@ -54,4 +54,11 @@ public partial class MainViewModel : ObservableObject
     {
         AbirNuevaNota();
     }
+
+    [RelayCommand]
+    private void ActualizarNota()
+    {
+        (Vista as EditarNota)?.SobreescribirNota();
+        AbirDiario();
+    }
 }
