@@ -42,6 +42,9 @@ public class MainActivity : AvaloniaMainActivity<App>
             case Páginas.diario:
                 MainViewModel.Instancia.EnClicNotaCommand.Execute(null);
                 break;
+            case Páginas.editar:
+                MainViewModel.Instancia.EnClicEditarCommand.Execute(null);
+                break;
         }
     }
 
