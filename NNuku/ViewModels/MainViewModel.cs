@@ -6,7 +6,7 @@ namespace NNuku.ViewModels;
 using NNuku.Views;
 using static NNuku.Constantes;
 
-public partial class MainViewModel : ViewModelBase
+public partial class MainViewModel : ObservableObject
 {
     public static MainViewModel? Instancia;
 
